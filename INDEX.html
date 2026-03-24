@@ -2,212 +2,1178 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduMaster | School Management System</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="/script.js" defer></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta
+      name="description"
+      content="Cheptalal Primary School - Excellence in Education, Nurturing Future Leaders"
+    />
+    <meta
+      name="keywords"
+      content="Cheptalal Primary School, Kenyan School, Education, Primary School"/>
+    <meta name="author" content="Cheptalal Primary School" />
+    <title>Cheptalal Primary School | Excellence in Education</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome 6 -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!doctype html>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+      <div class="gradient-bg"></div>
+      <div class="particles" id="particles"></div>
+    </div>
 
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EduMaster | School Management System</title>
-        <link rel="stylesheet" href="style.css" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
-      </head>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
 
-      <body>
-        <div class="container">
-          <nav class="sidebar" id="sidebar">
-            <div class="logo">
-              <i class="fas fa-graduation-cap"></i>
-              <span>EduMaster</span>
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="preloader-content">
+        <div class="preloader-ring"></div>
+        <div class="preloader-text">Cheptalal</div>
+        <div class="preloader-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo" data-aos="fade-right">
+            <div class="logo-3d">
+              <div class="logo-front">
+                <i class="fas fa-school"></i>
+              </div>
+              <div class="logo-back">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
             </div>
+            <div class="logo-text">
+              <h1>Cheptalal Primary</h1>
+              <p>Excellence in Education</p>
+            </div>
+          </div>
+          <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#admissions" class="nav-link">Admissions</a></li>
+            <li><a href="#academics" class="nav-link">Academics</a></li>
+            <li><a href="#portals" class="nav-link">Portals</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-            ```
-            <ul>
-              <li class="active">
-                <a href="#"><i class="fas fa-th-large"></i> Dashboard</a>
-              </li>
+    <!-- Hero Section - Stunning Landing -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-wrapper">
+          <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="hero-badge">
+              <span class="badge-pulse"></span>
+              <span>Since 2009 • Excellence Redefined</span>
+            </div>
+            <h1 class="hero-title">
+              <span class="title-gradient">Nurturing</span>
+              <span class="title-outline">Future Leaders</span>
+              <span class="title-highlight">Through Excellence</span>
+            </h1>
+            <p class="hero-description">
+              Where every child discovers their potential, builds character, and
+              achieves academic excellence in a supportive, innovative
+              environment.
+            </p>
+            <div class="hero-buttons">
+              <a href="#admissions" class="btn btn-primary btn-glow">
+                <span>Enroll Now</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="#about" class="btn btn-outline-glass">
+                <i class="fas fa-play"></i>
+                <span>Discover More</span>
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-number" data-target="1200">0</div>
+                <div class="stat-label">Students</div>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="45">0</div>
+                <div class="stat-label">Teachers</div>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="25">0</div>
+                <div class="stat-label">Awards</div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-visual"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <div class="floating-card card-1">
+              <i class="fas fa-chalkboard-user"></i>
+              <span>Expert Teachers</span>
+            </div>
+            <div class="floating-card card-2">
+              <i class="fas fa-laptop-code"></i>
+              <span>Digital Learning</span>
+            </div>
+            <div class="floating-card card-3">
+              <i class="fas fa-futbol"></i>
+              <span>Sports & Arts</span>
+            </div>
+            <div class="hero-image-container">
+              <div class="hero-image-glow"></div>
+              <div class="hero-image">
+                <img
+                  src="https://via.placeholder.com/500x500/2c5f2d/ffffff?text=Students+Learning"
+                  alt="Students"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-wave-bottom">
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,32L48,42.7C96,53,192,75,288,74.7C384,75,480,53,576,42.7C672,32,768,32,864,42.7C960,53,1056,75,1152,80C1248,85,1344,75,1392,69.3L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"
+            fill="white"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Features Section - Modern Cards -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">Why Choose Us</span>
+          <h2 class="section-title">
+            The Cheptalal <span class="gradient-text">Advantage</span>
+          </h2>
+          <p class="section-description">
+            Discover what makes our school the perfect choice for your child's
+            bright future
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="feature-icon-wrapper">
+              <div class="feature-icon-bg"></div>
+              <div class="feature-icon">
+                <i class="fas fa-chalkboard-user"></i>
+              </div>
+            </div>
+            <h3>Qualified Teachers</h3>
+            <p>
+              Experienced and dedicated educators committed to nurturing every
+              student's unique potential.
+            </p>
+            <div class="feature-link">
+              <span>Learn More</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon-wrapper">
+              <div class="feature-icon-bg"></div>
+              <div class="feature-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+            </div>
+            <h3>Modern Facilities</h3>
+            <p>
+              ICT labs, modern library, science labs, and smart classrooms for
+              enhanced learning experiences.
+            </p>
+            <div class="feature-link">
+              <span>Learn More</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-icon-wrapper">
+              <div class="feature-icon-bg"></div>
+              <div class="feature-icon">
+                <i class="fas fa-futbol"></i>
+              </div>
+            </div>
+            <h3>Co-Curricular Excellence</h3>
+            <p>
+              Sports, music, drama, and diverse clubs for holistic development
+              of every child.
+            </p>
+            <div class="feature-link">
+              <span>Learn More</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-icon-wrapper">
+              <div class="feature-icon-bg"></div>
+              <div class="feature-icon">
+                <i class="fas fa-hand-holding-heart"></i>
+              </div>
+            </div>
+            <h3>Values-Based Education</h3>
+            <p>
+              Building character, discipline, and moral integrity for lifelong
+              success.
+            </p>
+            <div class="feature-link">
+              <span>Learn More</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Mission Section -->
+    <section id="about" class="vision-section">
+      <div class="container">
+        <div class="vision-wrapper">
+          <div
+            class="vision-card"
+            data-aos="fade-right"
+            data-aos-duration="800"
+          >
+            <div class="vision-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h3>Our Vision</h3>
+            <p>
+              To be a center of academic excellence that nurtures responsible,
+              innovative, and globally competitive citizens who will transform
+              their communities and the nation.
+            </p>
+            <div class="vision-decoration"></div>
+          </div>
+          <div
+            class="vision-card mission"
+            data-aos="fade-left"
+            data-aos-duration="800"
+          >
+            <div class="vision-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>Our Mission</h3>
+            <p>
+              To provide quality, accessible, and holistic education through
+              innovative teaching methods, dedicated staff, and strong community
+              partnerships that develop every child's full potential.
+            </p>
+            <div class="vision-decoration"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values with Animations -->
+    <section class="values-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">Our Foundation</span>
+          <h2 class="section-title">
+            Core <span class="gradient-text">Values</span>
+          </h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card" data-aos="flip-left" data-aos-delay="0">
+            <div class="value-number">01</div>
+            <div class="value-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h4>Excellence</h4>
+            <p>Striving for the highest standards in academics and character</p>
+          </div>
+          <div class="value-card" data-aos="flip-left" data-aos-delay="100">
+            <div class="value-number">02</div>
+            <div class="value-icon"><i class="fas fa-handshake"></i></div>
+            <h4>Integrity</h4>
+            <p>Upholding honesty, transparency, and moral uprightness</p>
+          </div>
+          <div class="value-card" data-aos="flip-left" data-aos-delay="200">
+            <div class="value-number">03</div>
+            <div class="value-icon"><i class="fas fa-users"></i></div>
+            <h4>Community</h4>
+            <p>
+              Fostering collaboration between school, parents, and community
+            </p>
+          </div>
+          <div class="value-card" data-aos="flip-left" data-aos-delay="300">
+            <div class="value-number">04</div>
+            <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+            <h4>Innovation</h4>
+            <p>Embracing creativity and modern teaching approaches</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Announcements Ticker -->
+    <div class="ticker-section">
+      <div class="ticker-wrap">
+        <div class="ticker">
+          <div class="ticker-item">
+            <i class="fas fa-bullhorn"></i>
+            <span>📢 School reopens January 8th, 2024</span>
+          </div>
+          <div class="ticker-item">
+            <i class="fas fa-star"></i>
+            <span>🎓 PTA Meeting: January 15th, 2:00 PM</span>
+          </div>
+          <div class="ticker-item">
+            <i class="fas fa-calendar"></i>
+            <span>📚 Mid-term exams begin January 20th</span>
+          </div>
+          <div class="ticker-item">
+            <i class="fas fa-trophy"></i>
+            <span>🏆 Sports team wins regional championship!</span>
+          </div>
+          <div class="ticker-item">
+            <i class="fas fa-chart-line"></i>
+            <span>📊 2023 KCPE Results: Mean score 385.2</span>
+          </div>
+        </div>
+        <div class="ticker ticker-duplicate">
+          <div class="ticker-item">
+            <i class="fas fa-bullhorn"></i>
+            <span>📢 School reopens January 8th, 2024</span>
+          </div>
+          <div class="ticker-item">
+            <i class="fas fa-star"></i>
+            <span>🎓 PTA Meeting: January 15th, 2:00 PM</span>
+          </div>
+          <div class="ticker-item">
+            <i class="fas fa-calendar"></i>
+            <span>📚 Mid-term exams begin January 20th</span>
+          </div>
+          <div class="ticker-item">
+            <i class="fas fa-trophy"></i>
+            <span>🏆 Sports team wins regional championship!</span>
+          </div>
+          <div class="ticker-item">
+            <i class="fas fa-chart-line"></i>
+            <span>📊 2023 KCPE Results: Mean score 385.2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Continue with remaining sections (similar styling) -->
+    <!-- Add more sections as needed -->
+    <!-- ============================================= -->
+    <!-- ADMISSIONS SECTION                            -->
+    <!-- ============================================= -->
+    <section id="admissions" class="admissions-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">Join Our Family</span>
+          <h2 class="section-title">
+            Admissions <span class="gradient-text">2024</span>
+          </h2>
+          <p class="section-description">
+            Take the first step towards excellence. Limited seats available!
+          </p>
+        </div>
+
+        <div class="admissions-wrapper">
+          <div
+            class="admissions-info"
+            data-aos="fade-right"
+            data-aos-duration="800"
+          >
+            <div class="info-card">
+              <h3>
+                <i class="fas fa-check-circle"></i> Admission Requirements
+              </h3>
+              <ul class="requirements-list">
+                <li>
+                  <i class="fas fa-child"></i> Child must be 5-6 years old for
+                  Grade 1
+                </li>
+                <li>
+                  <i class="fas fa-file-alt"></i> Original Birth Certificate
+                </li>
+                <li>
+                  <i class="fas fa-address-card"></i> Previous School Report (if
+                  applicable)
+                </li>
+                <li><i class="fas fa-camera"></i> 2 Recent Passport Photos</li>
+                <li>
+                  <i class="fas fa-file-medical"></i> Immunization Records
+                </li>
+                <li><i class="fas fa-id-card"></i> Parent/Guardian ID Copy</li>
+              </ul>
+              <div class="fee-structure">
+                <h4><i class="fas fa-coins"></i> Fee Structure</h4>
+                <div class="fee-item">
+                  <span>Termly Fee</span>
+                  <span class="fee-amount">Ksh 15,000</span>
+                </div>
+                <div class="fee-item">
+                  <span>Annual Development Levy</span>
+                  <span class="fee-amount">Ksh 5,000</span>
+                </div>
+                <div class="fee-item total">
+                  <span>Total Per Year</span>
+                  <span class="fee-amount">Ksh 50,000</span>
+                </div>
+                <p class="fee-note">
+                  <i class="fas fa-info-circle"></i> Scholarships available for
+                  bright students
+                </p>
+              </div>
+              <a href="#" class="btn btn-primary download-btn">
+                <i class="fas fa-download"></i> Download Application Form
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="admissions-form"
+            data-aos="fade-left"
+            data-aos-duration="800"
+          >
+            <div class="form-card">
+              <h3><i class="fas fa-pen-alt"></i> Express Interest</h3>
+              <form id="admissionForm">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    placeholder="Student's Full Name"
+                    required
+                  />
+                  <i class="fas fa-user form-icon"></i>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <input type="date" required />
+                    <i class="fas fa-calendar-alt form-icon"></i>
+                  </div>
+                  <div class="form-group">
+                    <select required>
+                      <option value="">Select Grade</option>
+                      <option>Grade 1</option>
+                      <option>Grade 2</option>
+                      <option>Grade 3</option>
+                      <option>Grade 4</option>
+                      <option>Grade 5</option>
+                      <option>Grade 6</option>
+                      <option>Grade 7</option>
+                      <option>Grade 8</option>
+                    </select>
+                    <i class="fas fa-graduation-cap form-icon"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    placeholder="Parent/Guardian Name"
+                    required
+                  />
+                  <i class="fas fa-parent form-icon"></i>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <input type="tel" placeholder="Phone Number" required />
+                    <i class="fas fa-phone form-icon"></i>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" placeholder="Email Address" />
+                    <i class="fas fa-envelope form-icon"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <textarea
+                    rows="3"
+                    placeholder="Any special requirements or comments"
+                  ></textarea>
+                  <i class="fas fa-comment form-icon"></i>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                  <span>Submit Application</span>
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- ACADEMICS SECTION                             -->
+    <!-- ============================================= -->
+    <section id="academics" class="academics-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">Academic Excellence</span>
+          <h2 class="section-title">
+            Our <span class="gradient-text">Curriculum</span>
+          </h2>
+          <p class="section-description">
+            Comprehensive education following the Competency-Based Curriculum
+            (CBC)
+          </p>
+        </div>
+
+        <div class="academics-grid">
+          <div class="academic-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="academic-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3>CBC Curriculum</h3>
+            <p>
+              Competency-Based Curriculum focusing on practical skills, values,
+              and learner-centered approaches.
+            </p>
+            <div class="academic-features">
+              <span><i class="fas fa-check"></i> Project-Based Learning</span>
+              <span><i class="fas fa-check"></i> Continuous Assessment</span>
+            </div>
+          </div>
+          <div class="academic-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="academic-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>School Timetable</h3>
+            <p>Classes: 8:00 AM - 3:30 PM (Mon-Fri)</p>
+            <div class="timetable-preview">
+              <div class="timetable-item">
+                <span>Morning Session</span>
+                <span>8:00 - 12:00</span>
+              </div>
+              <div class="timetable-item">
+                <span>Lunch Break</span>
+                <span>12:00 - 1:00</span>
+              </div>
+              <div class="timetable-item">
+                <span>Afternoon Session</span>
+                <span>1:00 - 3:30</span>
+              </div>
+            </div>
+            <a href="#" class="download-timetable">
+              <i class="fas fa-download"></i> Download Full Timetable
+            </a>
+          </div>
+          <div class="academic-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="academic-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Assessment System</h3>
+            <p>Comprehensive evaluation through:</p>
+            <ul class="assessment-list">
               <li>
-                <a href="#"><i class="fas fa-user-graduate"></i> Students</a>
+                <i class="fas fa-check-circle"></i> Continuous Assessment Tests
+                (CATs)
               </li>
+              <li><i class="fas fa-check-circle"></i> Mid-Term Exams</li>
+              <li><i class="fas fa-check-circle"></i> End-Term Exams</li>
               <li>
-                <a href="#"
-                  ><i class="fas fa-chalkboard-teacher"></i> Teachers</a
-                >
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-book"></i> Curriculum</a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-calendar-alt"></i> Attendance</a>
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fas fa-file-invoice-dollar"></i> Finance</a
-                >
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-poll"></i> Exams & Results</a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                <i class="fas fa-check-circle"></i> Parent-Teacher Conferences
               </li>
             </ul>
-            ```
-          </nav>
-
-          <main class="main-content">
-            <header>
-              <div class="header-left">
-                <button id="menuToggle"><i class="fas fa-bars"></i></button>
-                <h1>Admin Dashboard</h1>
-              </div>
-
-              ```
-              <div class="header-right">
-                <div class="search-box">
-                  <i class="fas fa-search"></i>
-                  <input type="text" placeholder="Search student..." />
-                </div>
-
-                <div class="notification">
-                  <i class="fas fa-bell"></i>
-                  <span class="badge">3</span>
-                </div>
-
-                <button id="darkToggle"><i class="fas fa-moon"></i></button>
-
-                <div class="user-profile">
-                  <span>Admin</span>
-                  <img src="https://via.placeholder.com/40" />
-                </div>
-              </div>
-              ```
-            </header>
-
-            <section class="welcome">
-              <h2 id="greeting">Good Morning 👋</h2>
-              <p id="todayDate"></p>
-            </section>
-
-            <section class="stats-grid">
-              <div class="card">
-                <i class="fas fa-users blue"></i>
-                <div>
-                  <h3>1,250</h3>
-                  <p>Total Students</p>
-                </div>
-              </div>
-
-              ```
-              <div class="card">
-                <i class="fas fa-apple-alt orange"></i>
-                <div>
-                  <h3>85</h3>
-                  <p>Total Teachers</p>
-                </div>
-              </div>
-
-              <div class="card">
-                <i class="fas fa-wallet green"></i>
-                <div>
-                  <h3>$45,200</h3>
-                  <p>Fees Collected</p>
-                </div>
-              </div>
-
-              <div class="card">
-                <i class="fas fa-exclamation-circle red"></i>
-                <div>
-                  <h3>12</h3>
-                  <p>Pending Alerts</p>
-                </div>
-              </div>
-              ```
-            </section>
-
-            <section class="charts">
-              <div class="chart-card">
-                <h3>Student Performance</h3>
-                <canvas id="performanceChart"></canvas>
-              </div>
-
-              ```
-              <div class="chart-card">
-                <h3>Attendance Rate</h3>
-                <canvas id="attendanceChart"></canvas>
-              </div>
-              ```
-            </section>
-          </main>
-        </div>
-        <section class="content-card">
-          <div class="card-header">
-            <h2>Students Management</h2>
-            <button class="btn-primary" onclick="openStudentForm()">
-              Add Student
-            </button>
           </div>
-
-          ```
-          <div class="search-box" style="margin-bottom: 15px">
-            <i class="fas fa-search"></i>
-            <input
-              type="text"
-              id="studentSearch"
-              placeholder="Search student..."
-              onkeyup="searchStudents()"
-            />
+          <div class="academic-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="academic-icon">
+              <i class="fas fa-laptop"></i>
+            </div>
+            <h3>Digital Learning</h3>
+            <p>Modern ICT integration for enhanced learning:</p>
+            <div class="digital-features">
+              <span><i class="fas fa-tablet-alt"></i> Tablet Program</span>
+              <span><i class="fas fa-chalkboard"></i> Smart Classrooms</span>
+              <span><i class="fas fa-wifi"></i> Free Wi-Fi</span>
+              <span><i class="fas fa-video"></i> E-Learning Resources</span>
+            </div>
           </div>
-
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Class</th>
-                <th>Email</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="studentTable"></tbody>
-          </table>
-          ```
-        </section>
-
-        <!-- Student Modal -->
-
-        <div class="modal" id="studentModal">
-          <div class="modal-content">
-            <h3>Add Student</h3>
-
-            ```
-            <input type="text" id="studentName" placeholder="Full Name" />
-            <input type="text" id="studentClass" placeholder="Class" />
-            <input type="email" id="studentEmail" placeholder="Email" />
-
-            <button class="btn-primary" onclick="saveStudent()">Save</button>
-            <button onclick="closeStudentForm()">Cancel</button>
-          </div>
-          ```
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <div class="academic-highlights" data-aos="fade-up">
+          <div class="highlight-item">
+            <div class="highlight-number">98%</div>
+            <div class="highlight-text">Pass Rate</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-number">15+</div>
+            <div class="highlight-text">Extracurricular Clubs</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-number">1:25</div>
+            <div class="highlight-text">Teacher-Student Ratio</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-number">5+</div>
+            <div class="highlight-text">Computer Labs</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <script src="script.js"></script>
-      </body>
-    </html>
+    <!-- ============================================= -->
+    <!-- PORTALS SECTION - Student, Teacher, Worker    -->
+    <!-- ============================================= -->
+    <section id="portals" class="portals-section-enhanced">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">Digital Access</span>
+          <h2 class="section-title">
+            School <span class="gradient-text">Portals</span>
+          </h2>
+          <p class="section-description">
+            Secure access to personalized dashboards for students, teachers, and
+            staff
+          </p>
+        </div>
+
+        <div class="portals-grid-enhanced">
+          <!-- Student Portal -->
+          <div
+            class="portal-card-enhanced"
+            data-aos="flip-left"
+            data-aos-delay="0"
+          >
+            <div class="portal-header">
+              <div class="portal-icon-large">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <h3>Student Portal</h3>
+              <p>Access your learning materials and track your progress</p>
+            </div>
+            <div class="portal-features">
+              <div class="portal-feature">
+                <i class="fas fa-book"></i>
+                <span>Assignments & Homework</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-calendar-week"></i>
+                <span>Class Timetable</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-chart-simple"></i>
+                <span>Exam Results</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-download"></i>
+                <span>Learning Materials</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-bell"></i>
+                <span>Announcements</span>
+              </div>
+            </div>
+            <div class="portal-login">
+              <input type="text" placeholder="Student ID" class="login-input" />
+              <input
+                type="password"
+                placeholder="Password"
+                class="login-input"
+              />
+              <button class="btn btn-primary portal-btn">
+                <i class="fas fa-sign-in-alt"></i> Login to Student Portal
+              </button>
+              <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+          </div>
+
+          <!-- Teacher Portal -->
+          <div
+            class="portal-card-enhanced"
+            data-aos="flip-left"
+            data-aos-delay="200"
+          >
+            <div class="portal-header">
+              <div class="portal-icon-large">
+                <i class="fas fa-chalkboard-user"></i>
+              </div>
+              <h3>Teacher Portal</h3>
+              <p>Manage classes, grades, and communicate with parents</p>
+            </div>
+            <div class="portal-features">
+              <div class="portal-feature">
+                <i class="fas fa-upload"></i>
+                <span>Upload Notes & Materials</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-check-double"></i>
+                <span>Manage Attendance</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-star"></i>
+                <span>Record Grades</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-envelope"></i>
+                <span>Parent Communication</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-chart-line"></i>
+                <span>Student Analytics</span>
+              </div>
+            </div>
+            <div class="portal-login">
+              <input type="text" placeholder="Teacher ID" class="login-input" />
+              <input
+                type="password"
+                placeholder="Password"
+                class="login-input"
+              />
+              <button class="btn btn-primary portal-btn">
+                <i class="fas fa-sign-in-alt"></i> Login to Teacher Portal
+              </button>
+              <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+          </div>
+
+          <!-- Worker/Staff Portal -->
+          <div
+            class="portal-card-enhanced"
+            data-aos="flip-left"
+            data-aos-delay="400"
+          >
+            <div class="portal-header">
+              <div class="portal-icon-large">
+                <i class="fas fa-user-tie"></i>
+              </div>
+              <h3>Staff Portal</h3>
+              <p>Manage administrative tasks and school operations</p>
+            </div>
+            <div class="portal-features">
+              <div class="portal-feature">
+                <i class="fas fa-users"></i>
+                <span>Staff Management</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-file-alt"></i>
+                <span>Reports & Analytics</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-calendar"></i>
+                <span>Event Management</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-coins"></i>
+                <span>Fee Management</span>
+              </div>
+              <div class="portal-feature">
+                <i class="fas fa-chart-pie"></i>
+                <span>School Dashboard</span>
+              </div>
+            </div>
+            <div class="portal-login">
+              <input type="text" placeholder="Staff ID" class="login-input" />
+              <input
+                type="password"
+                placeholder="Password"
+                class="login-input"
+              />
+              <button class="btn btn-primary portal-btn">
+                <i class="fas fa-sign-in-alt"></i> Login to Staff Portal
+              </button>
+              <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portal-info" data-aos="fade-up">
+          <div class="info-banner">
+            <i class="fas fa-shield-alt"></i>
+            <div>
+              <strong>Secure Access</strong>
+              <p>
+                All portals are encrypted and secure. For login assistance,
+                contact the IT department.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- CONTACT SECTION                               -->
+    <!-- ============================================= -->
+    <section id="contact" class="contact-section-enhanced">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">Get In Touch</span>
+          <h2 class="section-title">
+            Contact <span class="gradient-text">Us</span>
+          </h2>
+          <p class="section-description">
+            We'd love to hear from you. Reach out with any questions or feedback
+          </p>
+        </div>
+
+        <div class="contact-wrapper">
+          <div
+            class="contact-info-enhanced"
+            data-aos="fade-right"
+            data-aos-duration="800"
+          >
+            <div class="contact-card">
+              <h3><i class="fas fa-address-card"></i> Contact Information</h3>
+
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <strong>Address</strong>
+                  <p>
+                    Cheptalal Village, Baringo County, Kenya<br />P.O. Box
+                    123-30400, Kabarnet
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <strong>Phone</strong>
+                  <p>+254 712 345 678<br />+254 723 456 789</p>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <strong>Email</strong>
+                  <p>
+                    info@cheptalalprimary.ac.ke<br />admin@cheptalalprimary.ac.ke
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-text">
+                  <strong>Office Hours</strong>
+                  <p>
+                    Monday - Friday: 8:00 AM - 4:00 PM<br />Saturday: 9:00 AM -
+                    12:00 PM
+                  </p>
+                </div>
+              </div>
+
+              <div class="social-media">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+                  <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63850.123456789!2d35.742!3d0.492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMjknMzEuMiJOIDM1wrA0NCc1Mi4wIkU!5e0!3m2!1sen!2ske!4v1234567890123!5m2!1sen!2ske"
+                width="100%"
+                height="250"
+                style="border: 0; border-radius: 15px"
+                allowfullscreen=""
+                loading="lazy"
+              >
+              </iframe>
+            </div>
+          </div>
+
+          <div
+            class="contact-form-enhanced"
+            data-aos="fade-left"
+            data-aos-duration="800"
+          >
+            <div class="form-card-enhanced">
+              <h3><i class="fas fa-comment-dots"></i> Send Us a Message</h3>
+              <form id="contactForm">
+                <div class="form-group">
+                  <input type="text" placeholder="Your Full Name" required />
+                  <i class="fas fa-user form-icon"></i>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <input type="email" placeholder="Email Address" required />
+                    <i class="fas fa-envelope form-icon"></i>
+                  </div>
+                  <div class="form-group">
+                    <input type="tel" placeholder="Phone Number" />
+                    <i class="fas fa-phone form-icon"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <select>
+                    <option>General Inquiry</option>
+                    <option>Admissions</option>
+                    <option>Fee Payment</option>
+                    <option>Complaint/Feedback</option>
+                    <option>Partnership</option>
+                  </select>
+                  <i class="fas fa-tag form-icon"></i>
+                </div>
+                <div class="form-group">
+                  <textarea
+                    rows="5"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                  <i class="fas fa-comment form-icon"></i>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                  <span>Send Message</span>
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <i class="fas fa-school"></i>
+              <h3>Cheptalal Primary</h3>
+            </div>
+            <p>
+              Committed to excellence in education, nurturing future leaders
+              through holistic development and strong values.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#admissions">Admissions</a></li>
+              <li><a href="#academics">Academics</a></li>
+              <li><a href="#portals">Portals</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-resources">
+            <h4>Resources</h4>
+            <ul>
+              <li>
+                <a href="#"><i class="fas fa-download"></i> School Calendar</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-download"></i> Fee Structure</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-download"></i> Uniform Guidelines</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-download"></i> Admission Forms</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Subscribe for updates and announcements</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your Email" />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Cheptalal Primary School. All Rights Reserved. |
+            Designed with <i class="fas fa-heart"></i> for excellence
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Additional JavaScript for new sections -->
+    <script>
+      // Form submissions for new sections
+      const admissionForm = document.getElementById("admissionForm");
+      const contactForm = document.getElementById("contactForm");
+
+      if (admissionForm) {
+        admissionForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert(
+            "Thank you for your application! Our admissions team will contact you shortly.",
+          );
+          admissionForm.reset();
+        });
+      }
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert(
+            "Thank you for your message! We will get back to you within 24 hours.",
+          );
+          contactForm.reset();
+        });
+      }
+
+      // Portal Login Buttons
+      const portalBtns = document.querySelectorAll(".portal-btn");
+      portalBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          alert(
+            "This is a demo portal. In production, this would redirect to the secure login page.",
+          );
+        });
+      });
+
+      // Newsletter Form
+      const newsletterForm = document.querySelector(".newsletter-form");
+      if (newsletterForm) {
+        newsletterForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Thank you for subscribing to our newsletter!");
+          newsletterForm.reset();
+        });
+      }
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+      });
+
+      // Preloader
+      window.addEventListener("load", () => {
+        const preloader = document.querySelector(".preloader");
+        setTimeout(() => {
+          preloader.style.opacity = "0";
+          setTimeout(() => {
+            preloader.style.display = "none";
+          }, 500);
+        }, 1500);
+      });
+
+      // Custom Cursor
+      const cursor = document.querySelector(".custom-cursor");
+      const cursorDot = document.querySelector(".cursor-dot");
+
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.transform = `translate(${e.clientX - 15}px, ${e.clientY - 15}px)`;
+        cursorDot.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`;
+      });
+
+      document.querySelectorAll("a, button, .btn").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          cursor.classList.add("hover");
+          cursorDot.classList.add("hover");
+        });
+        el.addEventListener("mouseleave", () => {
+          cursor.classList.remove("hover");
+          cursorDot.classList.remove("hover");
+        });
+      });
+
+      // Number Counter
+      const counters = document.querySelectorAll(".stat-number");
+      const speed = 200;
+
+      counters.forEach((counter) => {
+        const updateCount = () => {
+          const target = parseInt(counter.getAttribute("data-target"));
+          const count = parseInt(counter.innerText);
+          const increment = target / speed;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 20);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+
+      // Particles Animation
+      function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+        for (let i = 0; i < 50; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.animationDuration = Math.random() * 20 + 10 + "s";
+          particle.style.animationDelay = Math.random() * 10 + "s";
+          particlesContainer.appendChild(particle);
+        }
+      }
+      createParticles();
+
+      // Mobile Menu
+      const menuToggle = document.getElementById("menuToggle");
+      const navMenu = document.getElementById("navMenu");
+
+      menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        menuToggle.querySelector("i").classList.toggle("fa-bars");
+        menuToggle.querySelector("i").classList.toggle("fa-times");
+      });
+
+      // Scroll Header Effect
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+    </script>
   </body>
 </html>
