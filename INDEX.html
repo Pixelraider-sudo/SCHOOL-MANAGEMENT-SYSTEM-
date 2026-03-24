@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduMaster | School Management System</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="/script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!doctype html>
+
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EduMaster | School Management System</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+      </head>
+
+      <body>
+        <div class="container">
+          <nav class="sidebar" id="sidebar">
+            <div class="logo">
+              <i class="fas fa-graduation-cap"></i>
+              <span>EduMaster</span>
+            </div>
+
+            ```
+            <ul>
+              <li class="active">
+                <a href="#"><i class="fas fa-th-large"></i> Dashboard</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-user-graduate"></i> Students</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chalkboard-teacher"></i> Teachers</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-book"></i> Curriculum</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-calendar-alt"></i> Attendance</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-file-invoice-dollar"></i> Finance</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-poll"></i> Exams & Results</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+              </li>
+            </ul>
+            ```
+          </nav>
+
+          <main class="main-content">
+            <header>
+              <div class="header-left">
+                <button id="menuToggle"><i class="fas fa-bars"></i></button>
+                <h1>Admin Dashboard</h1>
+              </div>
+
+              ```
+              <div class="header-right">
+                <div class="search-box">
+                  <i class="fas fa-search"></i>
+                  <input type="text" placeholder="Search student..." />
+                </div>
+
+                <div class="notification">
+                  <i class="fas fa-bell"></i>
+                  <span class="badge">3</span>
+                </div>
+
+                <button id="darkToggle"><i class="fas fa-moon"></i></button>
+
+                <div class="user-profile">
+                  <span>Admin</span>
+                  <img src="https://via.placeholder.com/40" />
+                </div>
+              </div>
+              ```
+            </header>
+
+            <section class="welcome">
+              <h2 id="greeting">Good Morning 👋</h2>
+              <p id="todayDate"></p>
+            </section>
+
+            <section class="stats-grid">
+              <div class="card">
+                <i class="fas fa-users blue"></i>
+                <div>
+                  <h3>1,250</h3>
+                  <p>Total Students</p>
+                </div>
+              </div>
+
+              ```
+              <div class="card">
+                <i class="fas fa-apple-alt orange"></i>
+                <div>
+                  <h3>85</h3>
+                  <p>Total Teachers</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <i class="fas fa-wallet green"></i>
+                <div>
+                  <h3>$45,200</h3>
+                  <p>Fees Collected</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <i class="fas fa-exclamation-circle red"></i>
+                <div>
+                  <h3>12</h3>
+                  <p>Pending Alerts</p>
+                </div>
+              </div>
+              ```
+            </section>
+
+            <section class="charts">
+              <div class="chart-card">
+                <h3>Student Performance</h3>
+                <canvas id="performanceChart"></canvas>
+              </div>
+
+              ```
+              <div class="chart-card">
+                <h3>Attendance Rate</h3>
+                <canvas id="attendanceChart"></canvas>
+              </div>
+              ```
+            </section>
+          </main>
+        </div>
+        <section class="content-card">
+          <div class="card-header">
+            <h2>Students Management</h2>
+            <button class="btn-primary" onclick="openStudentForm()">
+              Add Student
+            </button>
+          </div>
+
+          ```
+          <div class="search-box" style="margin-bottom: 15px">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              id="studentSearch"
+              placeholder="Search student..."
+              onkeyup="searchStudents()"
+            />
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="studentTable"></tbody>
+          </table>
+          ```
+        </section>
+
+        <!-- Student Modal -->
+
+        <div class="modal" id="studentModal">
+          <div class="modal-content">
+            <h3>Add Student</h3>
+
+            ```
+            <input type="text" id="studentName" placeholder="Full Name" />
+            <input type="text" id="studentClass" placeholder="Class" />
+            <input type="email" id="studentEmail" placeholder="Email" />
+
+            <button class="btn-primary" onclick="saveStudent()">Save</button>
+            <button onclick="closeStudentForm()">Cancel</button>
+          </div>
+          ```
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script src="script.js"></script>
+      </body>
+    </html>
+  </body>
+</html>
