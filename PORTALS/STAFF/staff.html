@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Portal | Cheptalal Primary School</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="staff.css" />
+  </head>
+  <body>
+    <!-- 3D Background Effect -->
+    <div class="background-3d">
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+    </div>
+
+    <!-- Staff Portal Container -->
+    <div class="staff-portal">
+      <!-- Header with Glassmorphism -->
+      <header class="portal-header">
+        <div class="header-content">
+          <div class="logo-area">
+            <div class="logo-3d">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="logo-text">
+              <h1>STAFF PORTAL</h1>
+              <p>Cheptalal Primary School</p>
+            </div>
+          </div>
+          <div class="staff-profile">
+            <div class="profile-card">
+              <div class="profile-avatar">
+                <img
+                  src="https://ui-avatars.com/api/?background=ffb703&color=fff&bold=true&name=Admin"
+                  alt="Admin"
+                />
+              </div>
+              <div class="profile-info">
+                <h4>Dr. Sarah Wanjiku</h4>
+                <p>Headteacher | PhD in Educational Leadership</p>
+                <span class="rank-badge">Senior Administrator</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Navigation Tabs -->
+      <nav class="staff-nav">
+        <div class="nav-container">
+          <button class="nav-tab active" data-tab="dashboard">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </button>
+          <button class="nav-tab" data-tab="staff-management">
+            <i class="fas fa-users"></i>
+            <span>Staff Management</span>
+          </button>
+          <button class="nav-tab" data-tab="attendance">
+            <i class="fas fa-calendar-check"></i>
+            <span>Staff Attendance</span>
+          </button>
+          <button class="nav-tab" data-tab="payroll">
+            <i class="fas fa-coins"></i>
+            <span>Payroll</span>
+          </button>
+          <button class="nav-tab" data-tab="reports">
+            <i class="fas fa-chart-line"></i>
+            <span>Reports</span>
+          </button>
+          <button class="nav-tab" data-tab="communications">
+            <i class="fas fa-envelope"></i>
+            <span>Communications</span>
+          </button>
+          <button class="nav-tab" data-tab="settings">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="staff-main">
+        <!-- Dashboard Tab -->
+        <div class="tab-content active" id="dashboard">
+          <div class="welcome-section">
+            <h2>Welcome back, Dr. Sarah!</h2>
+            <p>Here's your executive summary for today</p>
+          </div>
+
+          <!-- Key Metrics -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-icon">
+                <i class="fas fa-chalkboard-user"></i>
+              </div>
+              <div class="metric-data">
+                <h3>Total Staff</h3>
+                <div class="metric-value">45</div>
+                <span>+3 new this month</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="metric-data">
+                <h3>Teaching Staff</h3>
+                <div class="metric-value">32</div>
+                <span>71% of total</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon">
+                <i class="fas fa-user-cog"></i>
+              </div>
+              <div class="metric-data">
+                <h3>Support Staff</h3>
+                <div class="metric-value">13</div>
+                <span>Admin & Support</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="metric-data">
+                <h3>Attendance Rate</h3>
+                <div class="metric-value">96%</div>
+                <span class="positive">↑ 2%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Staff Overview & Recent Activities -->
+          <div class="dashboard-layout">
+            <div class="card">
+              <div class="card-title">
+                <h3>Staff by Department</h3>
+                <i class="fas fa-chart-pie"></i>
+              </div>
+              <div class="department-list">
+                <div class="department-item">
+                  <span>Mathematics</span>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 20%"></div>
+                  </div>
+                  <span>6 Teachers</span>
+                </div>
+                <div class="department-item">
+                  <span>Languages</span>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 23%"></div>
+                  </div>
+                  <span>7 Teachers</span>
+                </div>
+                <div class="department-item">
+                  <span>Sciences</span>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 17%"></div>
+                  </div>
+                  <span>5 Teachers</span>
+                </div>
+                <div class="department-item">
+                  <span>Humanities</span>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 20%"></div>
+                  </div>
+                  <span>6 Teachers</span>
+                </div>
+                <div class="department-item">
+                  <span>Technical</span>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 13%"></div>
+                  </div>
+                  <span>4 Teachers</span>
+                </div>
+                <div class="department-item">
+                  <span>Administration</span>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 7%"></div>
+                  </div>
+                  <span>2 Staff</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">
+                <h3>Recent Staff Activities</h3>
+                <i class="fas fa-history"></i>
+              </div>
+              <div class="activity-list">
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-user-plus"></i>
+                  </div>
+                  <div class="activity-details">
+                    <p>
+                      <strong>New teacher hired</strong> - Mr. Peter Odhiambo
+                      (Mathematics)
+                    </p>
+                    <span>2 hours ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-calendar-check"></i>
+                  </div>
+                  <div class="activity-details">
+                    <p>
+                      <strong>Leave approved</strong> - Mrs. Jane Chebet
+                      (Deputy)
+                    </p>
+                    <span>5 hours ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div class="activity-details">
+                    <p>
+                      <strong>Performance review</strong> - Q4 evaluations
+                      submitted
+                    </p>
+                    <span>Yesterday</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="activity-details">
+                    <p>
+                      <strong>Staff meeting</strong> - Scheduled for January
+                      15th
+                    </p>
+                    <span>Yesterday</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upcoming Events -->
+          <div class="card full-width">
+            <div class="card-title">
+              <h3>Upcoming Staff Events</h3>
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="events-grid">
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="day">15</span>
+                  <span class="month">Jan</span>
+                </div>
+                <div class="event-info">
+                  <h4>Staff Meeting - Curriculum Review</h4>
+                  <p>School Hall, 2:00 PM</p>
+                  <span class="event-type mandatory">Mandatory</span>
+                </div>
+              </div>
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="day">20</span>
+                  <span class="month">Jan</span>
+                </div>
+                <div class="event-info">
+                  <h4>Professional Development Workshop</h4>
+                  <p>ICT Lab, 9:00 AM - 4:00 PM</p>
+                  <span class="event-type optional">Optional</span>
+                </div>
+              </div>
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="day">25</span>
+                  <span class="month">Jan</span>
+                </div>
+                <div class="event-info">
+                  <h4>Annual Sports Day</h4>
+                  <p>School Field, 8:00 AM</p>
+                  <span class="event-type mandatory">All Staff Required</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Staff Management Tab -->
+        <div class="tab-content" id="staff-management">
+          <div class="section-header">
+            <h2>Staff Management</h2>
+            <button class="btn-add-staff">
+              <i class="fas fa-plus"></i> Add New Staff
+            </button>
+          </div>
+
+          <!-- Staff Filters -->
+          <div class="staff-filters">
+            <input
+              type="text"
+              placeholder="Search staff..."
+              class="search-input"
+            />
+            <select class="filter-select">
+              <option>All Departments</option>
+              <option>Teaching Staff</option>
+              <option>Support Staff</option>
+              <option>Administration</option>
+            </select>
+            <select class="filter-select">
+              <option>All Ranks</option>
+              <option>Headteacher</option>
+              <option>Deputy Headteacher</option>
+              <option>Senior Teacher</option>
+              <option>Teacher</option>
+              <option>Support Staff</option>
+            </select>
+          </div>
+
+          <!-- Staff Cards Grid -->
+          <div class="staff-grid">
+            <div class="staff-card">
+              <div class="staff-card-header">
+                <div class="staff-avatar">
+                  <img
+                    src="https://ui-avatars.com/api/?background=2c5f2d&color=fff&name=Sarah+Wanjiku"
+                    alt="Staff"
+                  />
+                </div>
+                <div class="staff-badge">Headteacher</div>
+              </div>
+              <div class="staff-card-body">
+                <h3>Dr. Sarah Wanjiku</h3>
+                <p class="staff-title">Headteacher & CEO</p>
+                <p class="staff-dept">Administration</p>
+                <div class="staff-contact">
+                  <span><i class="fas fa-phone"></i> +254 712 345 678</span>
+                  <span
+                    ><i class="fas fa-envelope"></i>
+                    s.wanjiku@cheptalal.ac.ke</span
+                  >
+                </div>
+                <div class="staff-stats">
+                  <div class="stat">
+                    <span>Years</span>
+                    <strong>12</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Performance</span>
+                    <strong>98%</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="staff-card-footer">
+                <button class="btn-view-profile">View Profile</button>
+                <button class="btn-message-staff">Message</button>
+              </div>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-card-header">
+                <div class="staff-avatar">
+                  <img
+                    src="https://ui-avatars.com/api/?background=ffb703&color=fff&name=Jane+Chebet"
+                    alt="Staff"
+                  />
+                </div>
+                <div class="staff-badge">Deputy</div>
+              </div>
+              <div class="staff-card-body">
+                <h3>Mrs. Jane Chebet</h3>
+                <p class="staff-title">Deputy Headteacher - Academics</p>
+                <p class="staff-dept">Academic Administration</p>
+                <div class="staff-contact">
+                  <span><i class="fas fa-phone"></i> +254 723 456 789</span>
+                  <span
+                    ><i class="fas fa-envelope"></i>
+                    j.chebet@cheptalal.ac.ke</span
+                  >
+                </div>
+                <div class="staff-stats">
+                  <div class="stat">
+                    <span>Years</span>
+                    <strong>8</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Performance</span>
+                    <strong>95%</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="staff-card-footer">
+                <button class="btn-view-profile">View Profile</button>
+                <button class="btn-message-staff">Message</button>
+              </div>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-card-header">
+                <div class="staff-avatar">
+                  <img
+                    src="https://ui-avatars.com/api/?background=fb8b67&color=fff&name=David+Kimutai"
+                    alt="Staff"
+                  />
+                </div>
+                <div class="staff-badge">Senior Teacher</div>
+              </div>
+              <div class="staff-card-body">
+                <h3>Mr. David Kimutai</h3>
+                <p class="staff-title">Dean of Students</p>
+                <p class="staff-dept">Student Affairs</p>
+                <div class="staff-contact">
+                  <span><i class="fas fa-phone"></i> +254 734 567 890</span>
+                  <span
+                    ><i class="fas fa-envelope"></i>
+                    d.kimutai@cheptalal.ac.ke</span
+                  >
+                </div>
+                <div class="staff-stats">
+                  <div class="stat">
+                    <span>Years</span>
+                    <strong>10</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Performance</span>
+                    <strong>92%</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="staff-card-footer">
+                <button class="btn-view-profile">View Profile</button>
+                <button class="btn-message-staff">Message</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Staff Attendance Tab -->
+        <div class="tab-content" id="attendance">
+          <div class="section-header">
+            <h2>Staff Attendance Management</h2>
+            <div class="attendance-controls">
+              <input type="date" value="2024-01-08" />
+              <button class="btn-primary">
+                <i class="fas fa-download"></i> Export Report
+              </button>
+            </div>
+          </div>
+
+          <div class="attendance-table-container">
+            <table class="staff-attendance-table">
+              <thead>
+                <tr>
+                  <th>Staff ID</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>STF-001</td>
+                  <td>
+                    <div class="staff-name">
+                      <img
+                        src="https://ui-avatars.com/api/?background=2c5f2d&color=fff&name=Sarah+W"
+                        alt="Staff"
+                      />
+                      <span>Dr. Sarah Wanjiku</span>
+                    </div>
+                  </td>
+                  <td>Administration</td>
+                  <td>07:45 AM</td>
+                  <td>04:30 PM</td>
+                  <td><span class="status-badge present">Present</span></td>
+                  <td><button class="btn-edit">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>STF-002</td>
+                  <td>
+                    <div class="staff-name">
+                      <img
+                        src="https://ui-avatars.com/api/?background=ffb703&color=fff&name=Jane+C"
+                        alt="Staff"
+                      />
+                      <span>Mrs. Jane Chebet</span>
+                    </div>
+                  </td>
+                  <td>Academics</td>
+                  <td>08:00 AM</td>
+                  <td>04:15 PM</td>
+                  <td><span class="status-badge present">Present</span></td>
+                  <td><button class="btn-edit">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>STF-003</td>
+                  <td>
+                    <div class="staff-name">
+                      <img
+                        src="https://ui-avatars.com/api/?background=fb8b67&color=fff&name=David+K"
+                        alt="Staff"
+                      />
+                      <span>Mr. David Kimutai</span>
+                    </div>
+                  </td>
+                  <td>Student Affairs</td>
+                  <td>07:50 AM</td>
+                  <td>04:20 PM</td>
+                  <td><span class="status-badge present">Present</span></td>
+                  <td><button class="btn-edit">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>STF-004</td>
+                  <td>
+                    <div class="staff-name">
+                      <img
+                        src="https://ui-avatars.com/api/?background=48bb78&color=fff&name=John+M"
+                        alt="Staff"
+                      />
+                      <span>Mr. John Mwangi</span>
+                    </div>
+                  </td>
+                  <td>Mathematics</td>
+                  <td>08:15 AM</td>
+                  <td>-</td>
+                  <td><span class="status-badge late">Late</span></td>
+                  <td><button class="btn-edit">Edit</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="attendance-summary">
+            <div class="summary-stat-card">
+              <h4>Today's Summary</h4>
+              <div class="summary-numbers">
+                <div><strong>Present:</strong> 38</div>
+                <div><strong>Absent:</strong> 3</div>
+                <div><strong>Late:</strong> 2</div>
+                <div><strong>On Leave:</strong> 2</div>
+              </div>
+            </div>
+            <div class="summary-stat-card">
+              <h4>Monthly Overview</h4>
+              <div class="summary-numbers">
+                <div><strong>Attendance Rate:</strong> 96%</div>
+                <div><strong>Punctuality:</strong> 89%</div>
+                <div><strong>Leave Days Used:</strong> 45/120</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payroll Tab -->
+        <div class="tab-content" id="payroll">
+          <div class="section-header">
+            <h2>Payroll Management</h2>
+            <button class="btn-primary">
+              <i class="fas fa-download"></i> Generate Payroll Report
+            </button>
+          </div>
+
+          <div class="payroll-summary">
+            <div class="payroll-card">
+              <i class="fas fa-coins"></i>
+              <h3>Total Payroll</h3>
+              <div class="amount">Ksh 2,450,000</div>
+              <span>This Month</span>
+            </div>
+            <div class="payroll-card">
+              <i class="fas fa-users"></i>
+              <h3>Total Staff</h3>
+              <div class="amount">45</div>
+              <span>Active Employees</span>
+            </div>
+            <div class="payroll-card">
+              <i class="fas fa-chart-line"></i>
+              <h3>Average Salary</h3>
+              <div class="amount">Ksh 54,444</div>
+              <span>Per Staff</span>
+            </div>
+          </div>
+
+          <div class="payroll-table-container">
+            <table class="payroll-table">
+              <thead>
+                <tr>
+                  <th>Staff ID</th>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Basic Salary</th>
+                  <th>Allowances</th>
+                  <th>Deductions</th>
+                  <th>Net Pay</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>STF-001</td>
+                  <td>Dr. Sarah Wanjiku</td>
+                  <td>Headteacher</td>
+                  <td>Ksh 150,000</td>
+                  <td>Ksh 45,000</td>
+                  <td>Ksh 12,000</td>
+                  <td><strong>Ksh 183,000</strong></td>
+                  <td><span class="status-paid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>STF-002</td>
+                  <td>Mrs. Jane Chebet</td>
+                  <td>Deputy Headteacher</td>
+                  <td>Ksh 120,000</td>
+                  <td>Ksh 35,000</td>
+                  <td>Ksh 10,000</td>
+                  <td><strong>Ksh 145,000</strong></td>
+                  <td><span class="status-paid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>STF-003</td>
+                  <td>Mr. David Kimutai</td>
+                  <td>Senior Teacher</td>
+                  <td>Ksh 85,000</td>
+                  <td>Ksh 25,000</td>
+                  <td>Ksh 8,000</td>
+                  <td><strong>Ksh 102,000</strong></td>
+                  <td><span class="status-pending">Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="staff.js"></script>
+  </body>
+</html>

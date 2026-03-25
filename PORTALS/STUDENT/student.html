@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal | Cheptalal Primary School</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="student.css" />
+    <style>
+      /* Registration Form Styles */
+      .registration-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .registration-card {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        border-radius: 30px;
+        padding: 40px;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        animation: slideUp 0.6s ease;
+      }
+
+      .registration-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .school-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #2c5f2d 0%, #4a7c4b 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        font-size: 2rem;
+        color: white;
+      }
+
+      .registration-header h2 {
+        font-size: 1.8rem;
+        color: #1e293b;
+        margin-bottom: 5px;
+      }
+
+      .registration-header p {
+        color: #64748b;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 14px 45px 14px 20px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
+        transition: all 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: #2c5f2d;
+        box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.1);
+      }
+
+      .form-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94a3b8;
+      }
+
+      .register-btn {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #2c5f2d 0%, #4a7c4b 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.3s;
+      }
+
+      .register-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(44, 95, 45, 0.3);
+      }
+
+      .login-link {
+        text-align: center;
+        margin-top: 20px;
+        color: #64748b;
+      }
+
+      .login-link a {
+        color: #2c5f2d;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .login-link a:hover {
+        text-decoration: underline;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Hide dashboard initially */
+      .dashboard-section {
+        display: none;
+      }
+
+      .dashboard-section.active {
+        display: flex;
+      }
+
+      .registration-section.hidden {
+        display: none;
+      }
+
+      /* Welcome Banner for New User */
+      .welcome-banner {
+        background: linear-gradient(135deg, #2c5f2d 0%, #4a7c4b 100%);
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        color: white;
+      }
+
+      .welcome-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+      }
+
+      .welcome-text span {
+        color: #ffb703;
+      }
+
+      .date-time {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        border-radius: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+      <div class="gradient-sphere"></div>
+      <div class="gradient-sphere sphere-2"></div>
+      <div class="gradient-sphere sphere-3"></div>
+    </div>
+
+    <!-- Student Portal Container -->
+    <div class="student-portal">
+      <!-- Registration Section -->
+      <div id="registration-section" class="registration-section">
+        <div class="registration-card">
+          <div class="registration-header">
+            <div class="school-icon">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <h2>Create Your Account</h2>
+            <p>Join Cheptalal Primary School Student Portal</p>
+          </div>
+          <form id="student-registration-form">
+            <div class="form-group">
+              <input
+                type="text"
+                id="reg-fullname"
+                placeholder="Full Name"
+                required
+              />
+              <i class="fas fa-user form-icon"></i>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="reg-admission"
+                placeholder="Admission Number (e.g., CHP-001)"
+                required
+              />
+              <i class="fas fa-id-card form-icon"></i>
+            </div>
+            <div class="form-group">
+              <select id="reg-class" required>
+                <option value="">Select Class</option>
+                <option>Grade 1</option>
+                <option>Grade 2</option>
+                <option>Grade 3</option>
+                <option>Grade 4</option>
+                <option>Grade 5</option>
+                <option>Grade 6</option>
+                <option>Grade 7</option>
+                <option>Grade 8</option>
+              </select>
+              <i class="fas fa-graduation-cap form-icon"></i>
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="reg-email"
+                placeholder="Email Address"
+                required
+              />
+              <i class="fas fa-envelope form-icon"></i>
+            </div>
+            <div class="form-group">
+              <input
+                type="tel"
+                id="reg-phone"
+                placeholder="Phone Number"
+                required
+              />
+              <i class="fas fa-phone form-icon"></i>
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                id="reg-password"
+                placeholder="Create Password"
+                required
+              />
+              <i class="fas fa-lock form-icon"></i>
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                id="reg-confirm-password"
+                placeholder="Confirm Password"
+                required
+              />
+              <i class="fas fa-check-circle form-icon"></i>
+            </div>
+            <button type="submit" class="register-btn">
+              <span>Create Account</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+          <div class="login-link">
+            Already have an account?
+            <a href="#" id="switch-to-login">Login here</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Section (Hidden by default) -->
+      <div id="login-section" class="registration-section hidden">
+        <div class="registration-card">
+          <div class="registration-header">
+            <div class="school-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h2>Student Login</h2>
+            <p>Welcome back to Cheptalal Primary School</p>
+          </div>
+          <form id="student-login-form">
+            <div class="form-group">
+              <input
+                type="text"
+                id="login-admission"
+                placeholder="Admission Number"
+                required
+              />
+              <i class="fas fa-id-card form-icon"></i>
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                id="login-password"
+                placeholder="Password"
+                required
+              />
+              <i class="fas fa-lock form-icon"></i>
+            </div>
+            <button type="submit" class="register-btn">
+              <span>Login to Portal</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+          <div class="login-link">
+            Don't have an account?
+            <a href="#" id="switch-to-register">Create Account</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard (Shown After Login/Registration) -->
+      <div id="dashboard-section" class="dashboard-section">
+        <!-- Sidebar -->
+        <aside class="student-sidebar">
+          <div class="sidebar-header">
+            <div class="student-avatar-large">
+              <img
+                id="student-avatar"
+                src="https://ui-avatars.com/api/?background=2c5f2d&color=fff&name=Student"
+                alt="Student"
+              />
+            </div>
+            <h3 id="student-name">Student Name</h3>
+            <p id="student-class">Grade</p>
+            <span id="student-adm">ADM: ---</span>
+          </div>
+          <nav class="sidebar-nav">
+            <a href="#" class="nav-link active" data-page="dashboard">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-link" data-page="assignments">
+              <i class="fas fa-tasks"></i>
+              <span>Assignments</span>
+            </a>
+            <a href="#" class="nav-link" data-page="timetable">
+              <i class="fas fa-calendar-week"></i>
+              <span>Timetable</span>
+            </a>
+            <a href="#" class="nav-link" data-page="results">
+              <i class="fas fa-chart-line"></i>
+              <span>Results</span>
+            </a>
+            <a href="#" class="nav-link" data-page="materials">
+              <i class="fas fa-book"></i>
+              <span>Learning Materials</span>
+            </a>
+            <a href="#" class="nav-link" data-page="attendance">
+              <i class="fas fa-calendar-check"></i>
+              <span>My Attendance</span>
+            </a>
+            <a href="#" class="nav-link" data-page="fees">
+              <i class="fas fa-coins"></i>
+              <span>Fee Status</span>
+            </a>
+            <a href="#" class="nav-link" data-page="settings">
+              <i class="fas fa-cog"></i>
+              <span>Settings</span>
+            </a>
+          </nav>
+          <div class="sidebar-footer">
+            <button id="logout-btn" class="logout-btn">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </button>
+            <button id="delete-account-btn" class="delete-btn">
+              <i class="fas fa-trash-alt"></i>
+              <span>Delete Account</span>
+            </button>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="student-main">
+          <!-- Dashboard Page -->
+          <div id="dashboard-page" class="page active">
+            <div class="welcome-banner">
+              <div class="welcome-text">
+                <h2>Welcome, <span id="welcome-name">Student!</span></h2>
+                <p>Here's your academic summary for this term</p>
+              </div>
+              <div class="date-time">
+                <i class="fas fa-calendar"></i>
+                <span id="current-date"></span>
+              </div>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>Overall Grade</h3>
+                  <div class="stat-value">--</div>
+                  <span class="stat-change">Not yet available</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-tasks"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>Pending Tasks</h3>
+                  <div class="stat-value">0</div>
+                  <span class="stat-change">No pending tasks</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>Attendance</h3>
+                  <div class="stat-value">--</div>
+                  <span class="stat-change">Will update soon</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>Rank in Class</h3>
+                  <div class="stat-value">--</div>
+                  <span class="stat-change">Coming soon</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Assignments -->
+            <div class="card">
+              <div class="card-header">
+                <h3>Recent Assignments</h3>
+                <a href="#" class="view-all">View All</a>
+              </div>
+              <div class="assignments-list">
+                <div class="assignment-item">
+                  <div class="assignment-icon">
+                    <i class="fas fa-math"></i>
+                  </div>
+                  <div class="assignment-info">
+                    <h4>Mathematics - Algebra Quiz</h4>
+                    <p>Quadratic Equations and Factorization</p>
+                  </div>
+                  <div class="assignment-status">
+                    <span class="due-date">Due: Jan 12, 2024</span>
+                    <span class="status pending">Not Submitted</span>
+                  </div>
+                </div>
+                <div class="assignment-item">
+                  <div class="assignment-icon">
+                    <i class="fas fa-book"></i>
+                  </div>
+                  <div class="assignment-info">
+                    <h4>English - Essay Writing</h4>
+                    <p>Narrative Essay: My Best Experience</p>
+                  </div>
+                  <div class="assignment-status">
+                    <span class="due-date">Due: Jan 10, 2024</span>
+                    <span class="status submitted">Submitted</span>
+                  </div>
+                </div>
+                <div class="assignment-item">
+                  <div class="assignment-icon">
+                    <i class="fas fa-flask"></i>
+                  </div>
+                  <div class="assignment-info">
+                    <h4>Science - Lab Report</h4>
+                    <p>Plant Growth Experiment</p>
+                  </div>
+                  <div class="assignment-status">
+                    <span class="due-date">Due: Jan 15, 2024</span>
+                    <span class="status pending">Not Submitted</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other pages remain the same -->
+          <div id="assignments-page" class="page">
+            <div class="page-header">
+              <h2>My Assignments</h2>
+              <p>View and submit your homework and assignments</p>
+            </div>
+            <div class="assignments-grid">
+              <div class="assignment-card">
+                <div class="assignment-header">
+                  <h3>Mathematics</h3>
+                  <span class="deadline">Due: Jan 12, 2024</span>
+                </div>
+                <div class="assignment-body">
+                  <p><strong>Quadratic Equations Quiz</strong></p>
+                  <p>
+                    Solve the following quadratic equations using factorization
+                    method:
+                  </p>
+                  <ul>
+                    <li>x² + 5x + 6 = 0</li>
+                    <li>x² - 7x + 12 = 0</li>
+                    <li>2x² + 5x - 3 = 0</li>
+                  </ul>
+                  <div class="attachment">
+                    <i class="fas fa-paperclip"></i>
+                    <span>worksheet_quadratic.pdf (2.3 MB)</span>
+                  </div>
+                </div>
+                <div class="assignment-footer">
+                  <button class="btn-submit">Submit Assignment</button>
+                  <button class="btn-download">Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="timetable-page" class="page">
+            <div class="page-header">
+              <h2>Class Timetable</h2>
+              <p>Your class schedule will appear here after registration</p>
+            </div>
+          </div>
+
+          <div id="results-page" class="page">
+            <div class="page-header">
+              <h2>Exam Results</h2>
+              <p>Your results will be available here after exams</p>
+            </div>
+          </div>
+
+          <div id="materials-page" class="page">
+            <div class="page-header">
+              <h2>Learning Materials</h2>
+              <p>Download study materials and resources</p>
+            </div>
+          </div>
+
+          <div id="attendance-page" class="page">
+            <div class="page-header">
+              <h2>My Attendance</h2>
+              <p>Track your attendance records</p>
+            </div>
+          </div>
+
+          <div id="fees-page" class="page">
+            <div class="page-header">
+              <h2>Fee Status</h2>
+              <p>View your fee payment history and status</p>
+            </div>
+          </div>
+
+          <div id="settings-page" class="page">
+            <div class="page-header">
+              <h2>Account Settings</h2>
+              <p>Manage your account preferences</p>
+            </div>
+            <div class="settings-grid">
+              <div class="settings-card">
+                <h3>Profile Information</h3>
+                <div class="settings-form">
+                  <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="profile-name" />
+                  </div>
+                  <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="profile-email" />
+                  </div>
+                  <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="profile-phone" />
+                  </div>
+                  <button class="btn-save-profile">Save Changes</button>
+                </div>
+              </div>
+              <div class="settings-card danger">
+                <h3>Danger Zone</h3>
+                <p>Once you delete your account, there is no going back.</p>
+                <button id="delete-account-confirm" class="btn-delete-account">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Delete My Account
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="/PORTALS/STUDENT/student.js"></script>
+  </body>
+</html>

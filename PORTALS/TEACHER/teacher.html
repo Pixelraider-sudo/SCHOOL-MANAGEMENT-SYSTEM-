@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Portal | Cheptalal Primary School</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="teacher.css" />
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+      <div class="bg-gradient"></div>
+      <div class="bg-circles"></div>
+      <div class="bg-grid"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Teacher Portal Container -->
+    <div class="portal-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="school-logo">
+            <i class="fas fa-chalkboard-user"></i>
+            <span>Cheptalal<br /><small>Teacher Portal</small></span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="#" class="nav-item active" data-page="dashboard">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#" class="nav-item" data-page="classes">
+            <i class="fas fa-users"></i>
+            <span>My Classes</span>
+          </a>
+          <a href="#" class="nav-item" data-page="attendance">
+            <i class="fas fa-calendar-check"></i>
+            <span>Attendance</span>
+          </a>
+          <a href="#" class="nav-item" data-page="grades">
+            <i class="fas fa-star"></i>
+            <span>Grades & Assessment</span>
+          </a>
+          <a href="#" class="nav-item" data-page="materials">
+            <i class="fas fa-folder-open"></i>
+            <span>Learning Materials</span>
+          </a>
+          <a href="#" class="nav-item" data-page="communication">
+            <i class="fas fa-envelope"></i>
+            <span>Communication</span>
+          </a>
+          <a href="#" class="nav-item" data-page="timetable">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Timetable</span>
+          </a>
+          <a href="#" class="nav-item" data-page="reports">
+            <i class="fas fa-chart-line"></i>
+            <span>Reports</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="teacher-info">
+            <div class="teacher-avatar">
+              <img
+                src="https://ui-avatars.com/api/?background=2c5f2d&color=fff&bold=true&name=Mr.+John"
+                alt="Teacher"
+              />
+            </div>
+            <div class="teacher-details">
+              <h4>Mr. John Kipruto</h4>
+              <p>Senior Teacher | Mathematics</p>
+            </div>
+          </div>
+          <a href="#" class="logout-btn" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <!-- Dashboard Page -->
+        <div class="page active" id="dashboard-page">
+          <div class="page-header">
+            <h1>Welcome back, Mr. John!</h1>
+            <p>Here's what's happening with your classes today</p>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Total Students</h3>
+                <div class="stat-value">156</div>
+                <span class="stat-change positive">+12 this term</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Active Classes</h3>
+                <div class="stat-value">4</div>
+                <span class="stat-change">Grade 6-8</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Attendance Today</h3>
+                <div class="stat-value">94%</div>
+                <span class="stat-change positive">↑ 5%</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-tasks"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Pending Tasks</h3>
+                <div class="stat-value">8</div>
+                <span class="stat-change">3 overdue</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activities & Upcoming -->
+          <div class="dashboard-grid">
+            <div class="card">
+              <div class="card-header">
+                <h3>Today's Schedule</h3>
+                <i class="fas fa-calendar"></i>
+              </div>
+              <div class="schedule-list">
+                <div class="schedule-item">
+                  <div class="schedule-time">8:00 - 9:30</div>
+                  <div class="schedule-info">
+                    <h4>Mathematics - Grade 8A</h4>
+                    <p>Algebra: Quadratic Equations</p>
+                  </div>
+                  <span class="schedule-status">In Progress</span>
+                </div>
+                <div class="schedule-item">
+                  <div class="schedule-time">10:00 - 11:30</div>
+                  <div class="schedule-info">
+                    <h4>Mathematics - Grade 7B</h4>
+                    <p>Geometry: Angles & Triangles</p>
+                  </div>
+                  <span class="schedule-status upcoming">Upcoming</span>
+                </div>
+                <div class="schedule-item">
+                  <div class="schedule-time">12:30 - 2:00</div>
+                  <div class="schedule-info">
+                    <h4>Staff Meeting</h4>
+                    <p>Curriculum Review</p>
+                  </div>
+                  <span class="schedule-status">Scheduled</span>
+                </div>
+                <div class="schedule-item">
+                  <div class="schedule-time">2:30 - 4:00</div>
+                  <div class="schedule-info">
+                    <h4>Mathematics Clinic</h4>
+                    <p>Remedial Class</p>
+                  </div>
+                  <span class="schedule-status">Optional</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>Recent Announcements</h3>
+                <i class="fas fa-bell"></i>
+              </div>
+              <div class="announcement-list">
+                <div class="announcement-item">
+                  <div class="announcement-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="announcement-content">
+                    <h4>KCPE Results Celebration</h4>
+                    <p>
+                      Congratulations to our 2023 candidates! Mean score: 385.2
+                    </p>
+                    <span class="announcement-time">2 hours ago</span>
+                  </div>
+                </div>
+                <div class="announcement-item">
+                  <div class="announcement-icon">
+                    <i class="fas fa-calendar"></i>
+                  </div>
+                  <div class="announcement-content">
+                    <h4>PTA Meeting</h4>
+                    <p>Join us on January 15th at 2:00 PM in the school hall</p>
+                    <span class="announcement-time">Yesterday</span>
+                  </div>
+                </div>
+                <div class="announcement-item">
+                  <div class="announcement-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <div class="announcement-content">
+                    <h4>Sports Day Preparation</h4>
+                    <p>Annual sports day scheduled for January 25th</p>
+                    <span class="announcement-time">2 days ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Performance Overview -->
+          <div class="card full-width">
+            <div class="card-header">
+              <h3>Class Performance Overview</h3>
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="performance-chart">
+              <div class="class-performance">
+                <div class="class-item">
+                  <span>Grade 8A</span>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 87%"></div>
+                  </div>
+                  <span class="score">87%</span>
+                </div>
+                <div class="class-item">
+                  <span>Grade 8B</span>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 82%"></div>
+                  </div>
+                  <span class="score">82%</span>
+                </div>
+                <div class="class-item">
+                  <span>Grade 7A</span>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 79%"></div>
+                  </div>
+                  <span class="score">79%</span>
+                </div>
+                <div class="class-item">
+                  <span>Grade 7B</span>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 85%"></div>
+                  </div>
+                  <span class="score">85%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Classes Page -->
+        <div class="page" id="classes-page">
+          <div class="page-header">
+            <h1>My Classes</h1>
+            <p>Manage your assigned classes and students</p>
+          </div>
+
+          <div class="classes-grid">
+            <div class="class-card">
+              <div class="class-header">
+                <div class="class-grade">Grade 8A</div>
+                <div class="class-students">42 Students</div>
+              </div>
+              <div class="class-body">
+                <h3>Mathematics</h3>
+                <p>Advanced Algebra, Geometry, and Statistics</p>
+                <div class="class-stats">
+                  <div class="stat">
+                    <span>Avg. Score</span>
+                    <strong>87%</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Attendance</span>
+                    <strong>94%</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Assignments</span>
+                    <strong>12/15</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="class-footer">
+                <button class="btn-view">View Class</button>
+                <button class="btn-message">Message</button>
+              </div>
+            </div>
+
+            <div class="class-card">
+              <div class="class-header">
+                <div class="class-grade">Grade 8B</div>
+                <div class="class-students">38 Students</div>
+              </div>
+              <div class="class-body">
+                <h3>Mathematics</h3>
+                <p>Core Mathematics and Problem Solving</p>
+                <div class="class-stats">
+                  <div class="stat">
+                    <span>Avg. Score</span>
+                    <strong>82%</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Attendance</span>
+                    <strong>91%</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Assignments</span>
+                    <strong>10/15</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="class-footer">
+                <button class="btn-view">View Class</button>
+                <button class="btn-message">Message</button>
+              </div>
+            </div>
+
+            <div class="class-card">
+              <div class="class-header">
+                <div class="class-grade">Grade 7A</div>
+                <div class="class-students">40 Students</div>
+              </div>
+              <div class="class-body">
+                <h3>Mathematics</h3>
+                <p>Fundamentals of Algebra and Geometry</p>
+                <div class="class-stats">
+                  <div class="stat">
+                    <span>Avg. Score</span>
+                    <strong>79%</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Attendance</span>
+                    <strong>88%</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Assignments</span>
+                    <strong>14/15</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="class-footer">
+                <button class="btn-view">View Class</button>
+                <button class="btn-message">Message</button>
+              </div>
+            </div>
+
+            <div class="class-card">
+              <div class="class-header">
+                <div class="class-grade">Grade 7B</div>
+                <div class="class-students">36 Students</div>
+              </div>
+              <div class="class-body">
+                <h3>Mathematics</h3>
+                <p>Interactive Math and Practical Applications</p>
+                <div class="class-stats">
+                  <div class="stat">
+                    <span>Avg. Score</span>
+                    <strong>85%</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Attendance</span>
+                    <strong>92%</strong>
+                  </div>
+                  <div class="stat">
+                    <span>Assignments</span>
+                    <strong>13/15</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="class-footer">
+                <button class="btn-view">View Class</button>
+                <button class="btn-message">Message</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Attendance Page -->
+        <div class="page" id="attendance-page">
+          <div class="page-header">
+            <h1>Attendance Management</h1>
+            <p>Mark and track student attendance</p>
+          </div>
+
+          <div class="attendance-controls">
+            <div class="date-selector">
+              <input type="date" value="2024-01-08" />
+              <button class="btn-primary">
+                <i class="fas fa-search"></i> Load Class
+              </button>
+            </div>
+            <select class="class-select">
+              <option>Grade 8A - Mathematics</option>
+              <option>Grade 8B - Mathematics</option>
+              <option>Grade 7A - Mathematics</option>
+              <option>Grade 7B - Mathematics</option>
+            </select>
+          </div>
+
+          <div class="attendance-table-container">
+            <table class="attendance-table">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Admission No.</th>
+                  <th>Status</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="student-info">
+                      <img
+                        src="https://ui-avatars.com/api/?background=ffb703&color=fff&name=John+Doe"
+                        alt="Student"
+                      />
+                      <span>John Mwangi</span>
+                    </div>
+                  </td>
+                  <td>CHP-001</td>
+                  <td>
+                    <select class="status-select">
+                      <option value="present">✓ Present</option>
+                      <option value="absent">✗ Absent</option>
+                      <option value="late">⏰ Late</option>
+                      <option value="excused">📝 Excused</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Add remarks..."
+                      class="remarks-input"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="student-info">
+                      <img
+                        src="https://ui-avatars.com/api/?background=ffb703&color=fff&name=Jane+Smith"
+                        alt="Student"
+                      />
+                      <span>Jane Wanjiku</span>
+                    </div>
+                  </td>
+                  <td>CHP-002</td>
+                  <td>
+                    <select class="status-select">
+                      <option value="present">✓ Present</option>
+                      <option value="absent">✗ Absent</option>
+                      <option value="late">⏰ Late</option>
+                      <option value="excused">📝 Excused</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Add remarks..."
+                      class="remarks-input"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="student-info">
+                      <img
+                        src="https://ui-avatars.com/api/?background=ffb703&color=fff&name=Michael+Ochieng"
+                        alt="Student"
+                      />
+                      <span>Michael Ochieng</span>
+                    </div>
+                  </td>
+                  <td>CHP-003</td>
+                  <td>
+                    <select class="status-select">
+                      <option value="present">✓ Present</option>
+                      <option value="absent">✗ Absent</option>
+                      <option value="late">⏰ Late</option>
+                      <option value="excused">📝 Excused</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Add remarks..."
+                      class="remarks-input"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="student-info">
+                      <img
+                        src="https://ui-avatars.com/api/?background=ffb703&color=fff&name=Mary+Akinyi"
+                        alt="Student"
+                      />
+                      <span>Mary Akinyi</span>
+                    </div>
+                  </td>
+                  <td>CHP-004</td>
+                  <td>
+                    <select class="status-select">
+                      <option value="present">✓ Present</option>
+                      <option value="absent">✗ Absent</option>
+                      <option value="late">⏰ Late</option>
+                      <option value="excused">📝 Excused</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Add remarks..."
+                      class="remarks-input"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="attendance-summary">
+            <div class="summary-card">
+              <h4>Today's Summary</h4>
+              <div class="summary-stats">
+                <div class="summary-stat">
+                  <span>Present</span>
+                  <strong>42</strong>
+                </div>
+                <div class="summary-stat">
+                  <span>Absent</span>
+                  <strong>3</strong>
+                </div>
+                <div class="summary-stat">
+                  <span>Late</span>
+                  <strong>2</strong>
+                </div>
+                <div class="summary-stat">
+                  <span>Excused</span>
+                  <strong>1</strong>
+                </div>
+              </div>
+            </div>
+            <button class="btn-save-attendance">
+              <i class="fas fa-save"></i> Save Attendance
+            </button>
+          </div>
+        </div>
+
+        <!-- Grades Page -->
+        <div class="page" id="grades-page">
+          <div class="page-header">
+            <h1>Grades & Assessment</h1>
+            <p>Record and manage student grades</p>
+          </div>
+
+          <div class="grades-controls">
+            <select class="class-select">
+              <option>Grade 8A - Mathematics</option>
+              <option>Grade 8B - Mathematics</option>
+              <option>Grade 7A - Mathematics</option>
+              <option>Grade 7B - Mathematics</option>
+            </select>
+            <select class="assessment-select">
+              <option>Term 1 - CAT 1</option>
+              <option>Term 1 - Mid-term Exam</option>
+              <option>Term 1 - CAT 2</option>
+              <option>Term 1 - End-term Exam</option>
+            </select>
+            <button class="btn-primary">
+              <i class="fas fa-plus"></i> New Assessment
+            </button>
+          </div>
+
+          <div class="grades-table-container">
+            <table class="grades-table">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Admission No.</th>
+                  <th>Score</th>
+                  <th>Grade</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Mwangi</td>
+                  <td>CHP-001</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="score-input"
+                      value="85"
+                      min="0"
+                      max="100"
+                    />
+                  </td>
+                  <td><span class="grade-badge A">A</span></td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Remarks..."
+                      class="remarks-input"
+                      value="Excellent work!"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jane Wanjiku</td>
+                  <td>CHP-002</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="score-input"
+                      value="78"
+                      min="0"
+                      max="100"
+                    />
+                  </td>
+                  <td><span class="grade-badge B+">B+</span></td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Remarks..."
+                      class="remarks-input"
+                      value="Good improvement"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Michael Ochieng</td>
+                  <td>CHP-003</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="score-input"
+                      value="92"
+                      min="0"
+                      max="100"
+                    />
+                  </td>
+                  <td><span class="grade-badge A">A</span></td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Remarks..."
+                      class="remarks-input"
+                      value="Outstanding!"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Mary Akinyi</td>
+                  <td>CHP-004</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="score-input"
+                      value="67"
+                      min="0"
+                      max="100"
+                    />
+                  </td>
+                  <td><span class="grade-badge B-">B-</span></td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Remarks..."
+                      class="remarks-input"
+                      value="Needs more practice"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <button class="btn-save-grades">
+            <i class="fas fa-save"></i> Save Grades
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <script src="teacher.js"></script>
+  </body>
+</html>
