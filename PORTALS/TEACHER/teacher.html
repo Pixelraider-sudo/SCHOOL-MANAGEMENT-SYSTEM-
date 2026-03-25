@@ -13,6 +13,530 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="stylesheet" href="teacher.css" />
+    <style>
+      /* Registration & Login Styles */
+      .auth-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .auth-card {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        border-radius: 30px;
+        padding: 40px;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        animation: slideUp 0.6s ease;
+      }
+
+      .auth-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .auth-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #2c5f2d 0%, #4a7c4b 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        font-size: 2rem;
+        color: white;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .auth-header h2 {
+        font-size: 1.8rem;
+        color: #1e293b;
+        margin-bottom: 5px;
+      }
+
+      .auth-header p {
+        color: #64748b;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 14px 45px 14px 20px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
+        transition: all 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #2c5f2d;
+        box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.1);
+      }
+
+      .form-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94a3b8;
+      }
+
+      textarea ~ .form-icon {
+        top: 20px;
+        transform: none;
+      }
+
+      .auth-btn {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #2c5f2d 0%, #4a7c4b 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.3s;
+      }
+
+      .auth-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(44, 95, 45, 0.3);
+      }
+
+      .auth-link {
+        text-align: center;
+        margin-top: 20px;
+        color: #64748b;
+      }
+
+      .auth-link a {
+        color: #2c5f2d;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .auth-link a:hover {
+        text-decoration: underline;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .portal-container {
+        display: none;
+      }
+
+      .portal-container.active {
+        display: flex;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .shake {
+        animation: shake 0.5s ease-in-out;
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-10px);
+        }
+        75% {
+          transform: translateX(10px);
+        }
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: white;
+        padding: 15px 25px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transform: translateX(400px);
+        transition: transform 0.3s ease;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .toast.show {
+        transform: translateX(0);
+      }
+      .toast-success {
+        border-left: 4px solid #10b981;
+      }
+      .toast-success i {
+        color: #10b981;
+      }
+      .toast-error {
+        border-left: 4px solid #ef4444;
+      }
+      .toast-error i {
+        color: #ef4444;
+      }
+      .toast-info {
+        border-left: 4px solid #3b82f6;
+      }
+      .toast-info i {
+        color: #3b82f6;
+      }
+
+      /* Modal Styles */
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+
+      .modal.hidden {
+        display: none;
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 20px;
+        max-width: 500px;
+        width: 90%;
+        animation: modalSlideIn 0.3s ease;
+      }
+
+      @keyframes modalSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-header {
+        padding: 20px;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .modal-header h3 {
+        font-size: 1.2rem;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #94a3b8;
+      }
+
+      .modal-body {
+        padding: 20px;
+      }
+
+      .modal-footer {
+        padding: 20px;
+        border-top: 1px solid #e2e8f0;
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .btn-cancel,
+      .btn-confirm {
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+
+      .btn-cancel {
+        background: #e2e8f0;
+        border: none;
+        color: #1e293b;
+      }
+
+      .btn-confirm {
+        background: linear-gradient(135deg, #2c5f2d 0%, #4a7c4b 100%);
+        border: none;
+        color: white;
+      }
+
+      .btn-cancel:hover,
+      .btn-confirm:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Empty State Styles */
+      .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        background: white;
+        border-radius: 20px;
+      }
+
+      .empty-state i {
+        font-size: 3rem;
+        color: #cbd5e1;
+        margin-bottom: 15px;
+      }
+
+      .empty-state p {
+        color: #64748b;
+      }
+
+      /* Material Card Styles */
+      .material-card,
+      .timetable-card,
+      .announcement-card {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .material-card:hover,
+      .timetable-card:hover,
+      .announcement-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .material-icon {
+        width: 50px;
+        height: 50px;
+        background: #f1f5f9;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #2c5f2d;
+      }
+
+      .material-info,
+      .timetable-preview {
+        flex: 1;
+        margin-left: 15px;
+      }
+
+      .material-info h4,
+      .timetable-header h4,
+      .announcement-header h4 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+      }
+
+      .material-info p,
+      .timetable-preview p {
+        font-size: 0.85rem;
+        color: #64748b;
+        margin-bottom: 5px;
+      }
+
+      .material-info span,
+      .timetable-header span {
+        font-size: 0.7rem;
+        color: #94a3b8;
+      }
+
+      .material-actions,
+      .timetable-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-download,
+      .btn-delete {
+        padding: 8px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        transition: all 0.3s;
+      }
+
+      .btn-download {
+        background: #f1f5f9;
+        border: none;
+        color: #2c5f2d;
+      }
+
+      .btn-delete {
+        background: #fee2e2;
+        border: none;
+        color: #ef4444;
+      }
+
+      .btn-download:hover,
+      .btn-delete:hover {
+        transform: translateY(-2px);
+      }
+
+      .announcement-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .announcement-header i {
+        font-size: 1.2rem;
+        color: #ffb703;
+      }
+
+      .announcement-body {
+        flex: 1;
+        margin-left: 42px;
+      }
+
+      .announcement-body p {
+        margin: 5px 0;
+        font-size: 0.85rem;
+        color: #475569;
+      }
+
+      .report-summary {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+      }
+
+      .report-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .report-stat {
+        background: #f8fafc;
+        padding: 15px;
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      .report-stat strong {
+        display: block;
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-bottom: 5px;
+      }
+
+      .report-stat span {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #2c5f2d;
+      }
+
+      .report-table-container {
+        overflow-x: auto;
+        margin: 20px 0;
+      }
+
+      .report-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .report-table th,
+      .report-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .report-table th {
+        background: #f8fafc;
+        font-weight: 600;
+      }
+
+      @media (max-width: 768px) {
+        .toast {
+          bottom: 20px;
+          right: 20px;
+          left: 20px;
+          transform: translateY(100px);
+        }
+        .toast.show {
+          transform: translateY(0);
+        }
+
+        .material-card,
+        .timetable-card {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .material-actions,
+        .timetable-actions {
+          margin-top: 15px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Animated Background -->
@@ -22,11 +546,148 @@
       <div class="bg-grid"></div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
+    <!-- Registration Section -->
+    <div id="registration-section" class="auth-section">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="auth-icon">
+            <i class="fas fa-chalkboard-user"></i>
+          </div>
+          <h2>Teacher Registration</h2>
+          <p>Create your teacher account</p>
+        </div>
+        <form id="teacher-registration-form">
+          <div class="form-group">
+            <input
+              type="text"
+              id="reg-fullname"
+              placeholder="Full Name"
+              required
+            />
+            <i class="fas fa-user form-icon"></i>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="reg-teacher-id"
+              placeholder="Teacher ID (e.g., TCH-001)"
+              required
+            />
+            <i class="fas fa-id-card form-icon"></i>
+          </div>
+          <div class="form-group">
+            <select id="reg-subject" required>
+              <option value="">Select Subject</option>
+              <option>Mathematics</option>
+              <option>English</option>
+              <option>Science</option>
+              <option>Kiswahili</option>
+              <option>Social Studies</option>
+              <option>CRE</option>
+            </select>
+            <i class="fas fa-book form-icon"></i>
+          </div>
+          <div class="form-group">
+            <select id="reg-role" required>
+              <option value="">Select Role</option>
+              <option>Senior Teacher</option>
+              <option>Class Teacher</option>
+              <option>Subject Teacher</option>
+              <option>Assistant Teacher</option>
+            </select>
+            <i class="fas fa-user-tie form-icon"></i>
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              id="reg-email"
+              placeholder="Email Address"
+              required
+            />
+            <i class="fas fa-envelope form-icon"></i>
+          </div>
+          <div class="form-group">
+            <input
+              type="tel"
+              id="reg-phone"
+              placeholder="Phone Number"
+              required
+            />
+            <i class="fas fa-phone form-icon"></i>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="reg-password"
+              placeholder="Create Password"
+              required
+            />
+            <i class="fas fa-lock form-icon"></i>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="reg-confirm-password"
+              placeholder="Confirm Password"
+              required
+            />
+            <i class="fas fa-check-circle form-icon"></i>
+          </div>
+          <button type="submit" class="auth-btn">
+            <span>Register Account</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+        <div class="auth-link">
+          Already have an account?
+          <a href="#" id="switch-to-login">Login here</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Section -->
+    <div id="login-section" class="auth-section hidden">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="auth-icon">
+            <i class="fas fa-chalkboard-user"></i>
+          </div>
+          <h2>Teacher Login</h2>
+          <p>Welcome back to your portal</p>
+        </div>
+        <form id="teacher-login-form">
+          <div class="form-group">
+            <input
+              type="text"
+              id="login-teacher-id"
+              placeholder="Teacher ID"
+              required
+            />
+            <i class="fas fa-id-card form-icon"></i>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="login-password"
+              placeholder="Password"
+              required
+            />
+            <i class="fas fa-lock form-icon"></i>
+          </div>
+          <button type="submit" class="auth-btn">
+            <span>Login to Portal</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+        <div class="auth-link">
+          Don't have an account?
+          <a href="#" id="switch-to-register">Register here</a>
+        </div>
+      </div>
+    </div>
 
     <!-- Teacher Portal Container -->
-    <div class="portal-container">
+    <div id="portal-container" class="portal-container">
       <!-- Sidebar Navigation -->
       <aside class="sidebar">
         <div class="sidebar-header">
@@ -53,6 +714,10 @@
             <i class="fas fa-star"></i>
             <span>Grades & Assessment</span>
           </a>
+          <a href="#" class="nav-item" data-page="assignments">
+            <i class="fas fa-tasks"></i>
+            <span>Assignments</span>
+          </a>
           <a href="#" class="nav-item" data-page="materials">
             <i class="fas fa-folder-open"></i>
             <span>Learning Materials</span>
@@ -75,19 +740,20 @@
           <div class="teacher-info">
             <div class="teacher-avatar">
               <img
-                src="https://ui-avatars.com/api/?background=2c5f2d&color=fff&bold=true&name=Mr.+John"
+                id="teacher-avatar"
+                src="https://ui-avatars.com/api/?background=2c5f2d&color=fff&bold=true&name=Teacher"
                 alt="Teacher"
               />
             </div>
             <div class="teacher-details">
-              <h4>Mr. John Kipruto</h4>
-              <p>Senior Teacher | Mathematics</p>
+              <h4 id="teacher-name">Teacher Name</h4>
+              <p id="teacher-role">Subject | Role</p>
             </div>
           </div>
-          <a href="#" class="logout-btn" id="logoutBtn">
+          <button class="logout-btn" id="logoutBtn">
             <i class="fas fa-sign-out-alt"></i>
             <span>Logout</span>
-          </a>
+          </button>
         </div>
       </aside>
 
@@ -96,175 +762,41 @@
         <!-- Dashboard Page -->
         <div class="page active" id="dashboard-page">
           <div class="page-header">
-            <h1>Welcome back, Mr. John!</h1>
+            <h1 id="dashboard-welcome">Welcome back, Teacher!</h1>
             <p>Here's what's happening with your classes today</p>
           </div>
 
-          <!-- Stats Cards -->
           <div class="stats-grid">
             <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-users"></i>
-              </div>
+              <div class="stat-icon"><i class="fas fa-users"></i></div>
               <div class="stat-info">
                 <h3>Total Students</h3>
-                <div class="stat-value">156</div>
-                <span class="stat-change positive">+12 this term</span>
+                <div class="stat-value" id="total-students">0</div>
+                <span class="stat-change">Across all classes</span>
               </div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-book"></i>
-              </div>
+              <div class="stat-icon"><i class="fas fa-book"></i></div>
               <div class="stat-info">
                 <h3>Active Classes</h3>
-                <div class="stat-value">4</div>
-                <span class="stat-change">Grade 6-8</span>
+                <div class="stat-value" id="active-classes">0</div>
+                <span class="stat-change">Assigned to you</span>
               </div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-check-circle"></i>
-              </div>
+              <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
               <div class="stat-info">
                 <h3>Attendance Today</h3>
-                <div class="stat-value">94%</div>
-                <span class="stat-change positive">↑ 5%</span>
+                <div class="stat-value" id="attendance-today">--%</div>
+                <span class="stat-change">Average rate</span>
               </div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-tasks"></i>
-              </div>
+              <div class="stat-icon"><i class="fas fa-tasks"></i></div>
               <div class="stat-info">
                 <h3>Pending Tasks</h3>
-                <div class="stat-value">8</div>
-                <span class="stat-change">3 overdue</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Recent Activities & Upcoming -->
-          <div class="dashboard-grid">
-            <div class="card">
-              <div class="card-header">
-                <h3>Today's Schedule</h3>
-                <i class="fas fa-calendar"></i>
-              </div>
-              <div class="schedule-list">
-                <div class="schedule-item">
-                  <div class="schedule-time">8:00 - 9:30</div>
-                  <div class="schedule-info">
-                    <h4>Mathematics - Grade 8A</h4>
-                    <p>Algebra: Quadratic Equations</p>
-                  </div>
-                  <span class="schedule-status">In Progress</span>
-                </div>
-                <div class="schedule-item">
-                  <div class="schedule-time">10:00 - 11:30</div>
-                  <div class="schedule-info">
-                    <h4>Mathematics - Grade 7B</h4>
-                    <p>Geometry: Angles & Triangles</p>
-                  </div>
-                  <span class="schedule-status upcoming">Upcoming</span>
-                </div>
-                <div class="schedule-item">
-                  <div class="schedule-time">12:30 - 2:00</div>
-                  <div class="schedule-info">
-                    <h4>Staff Meeting</h4>
-                    <p>Curriculum Review</p>
-                  </div>
-                  <span class="schedule-status">Scheduled</span>
-                </div>
-                <div class="schedule-item">
-                  <div class="schedule-time">2:30 - 4:00</div>
-                  <div class="schedule-info">
-                    <h4>Mathematics Clinic</h4>
-                    <p>Remedial Class</p>
-                  </div>
-                  <span class="schedule-status">Optional</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <h3>Recent Announcements</h3>
-                <i class="fas fa-bell"></i>
-              </div>
-              <div class="announcement-list">
-                <div class="announcement-item">
-                  <div class="announcement-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="announcement-content">
-                    <h4>KCPE Results Celebration</h4>
-                    <p>
-                      Congratulations to our 2023 candidates! Mean score: 385.2
-                    </p>
-                    <span class="announcement-time">2 hours ago</span>
-                  </div>
-                </div>
-                <div class="announcement-item">
-                  <div class="announcement-icon">
-                    <i class="fas fa-calendar"></i>
-                  </div>
-                  <div class="announcement-content">
-                    <h4>PTA Meeting</h4>
-                    <p>Join us on January 15th at 2:00 PM in the school hall</p>
-                    <span class="announcement-time">Yesterday</span>
-                  </div>
-                </div>
-                <div class="announcement-item">
-                  <div class="announcement-icon">
-                    <i class="fas fa-trophy"></i>
-                  </div>
-                  <div class="announcement-content">
-                    <h4>Sports Day Preparation</h4>
-                    <p>Annual sports day scheduled for January 25th</p>
-                    <span class="announcement-time">2 days ago</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Performance Overview -->
-          <div class="card full-width">
-            <div class="card-header">
-              <h3>Class Performance Overview</h3>
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <div class="performance-chart">
-              <div class="class-performance">
-                <div class="class-item">
-                  <span>Grade 8A</span>
-                  <div class="progress-bar">
-                    <div class="progress" style="width: 87%"></div>
-                  </div>
-                  <span class="score">87%</span>
-                </div>
-                <div class="class-item">
-                  <span>Grade 8B</span>
-                  <div class="progress-bar">
-                    <div class="progress" style="width: 82%"></div>
-                  </div>
-                  <span class="score">82%</span>
-                </div>
-                <div class="class-item">
-                  <span>Grade 7A</span>
-                  <div class="progress-bar">
-                    <div class="progress" style="width: 79%"></div>
-                  </div>
-                  <span class="score">79%</span>
-                </div>
-                <div class="class-item">
-                  <span>Grade 7B</span>
-                  <div class="progress-bar">
-                    <div class="progress" style="width: 85%"></div>
-                  </div>
-                  <span class="score">85%</span>
-                </div>
+                <div class="stat-value" id="pending-tasks">0</div>
+                <span class="stat-change">Awaiting action</span>
               </div>
             </div>
           </div>
@@ -275,125 +807,11 @@
           <div class="page-header">
             <h1>My Classes</h1>
             <p>Manage your assigned classes and students</p>
+            <button class="btn-primary" id="add-class-btn">
+              <i class="fas fa-plus"></i> Add New Class
+            </button>
           </div>
-
-          <div class="classes-grid">
-            <div class="class-card">
-              <div class="class-header">
-                <div class="class-grade">Grade 8A</div>
-                <div class="class-students">42 Students</div>
-              </div>
-              <div class="class-body">
-                <h3>Mathematics</h3>
-                <p>Advanced Algebra, Geometry, and Statistics</p>
-                <div class="class-stats">
-                  <div class="stat">
-                    <span>Avg. Score</span>
-                    <strong>87%</strong>
-                  </div>
-                  <div class="stat">
-                    <span>Attendance</span>
-                    <strong>94%</strong>
-                  </div>
-                  <div class="stat">
-                    <span>Assignments</span>
-                    <strong>12/15</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="class-footer">
-                <button class="btn-view">View Class</button>
-                <button class="btn-message">Message</button>
-              </div>
-            </div>
-
-            <div class="class-card">
-              <div class="class-header">
-                <div class="class-grade">Grade 8B</div>
-                <div class="class-students">38 Students</div>
-              </div>
-              <div class="class-body">
-                <h3>Mathematics</h3>
-                <p>Core Mathematics and Problem Solving</p>
-                <div class="class-stats">
-                  <div class="stat">
-                    <span>Avg. Score</span>
-                    <strong>82%</strong>
-                  </div>
-                  <div class="stat">
-                    <span>Attendance</span>
-                    <strong>91%</strong>
-                  </div>
-                  <div class="stat">
-                    <span>Assignments</span>
-                    <strong>10/15</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="class-footer">
-                <button class="btn-view">View Class</button>
-                <button class="btn-message">Message</button>
-              </div>
-            </div>
-
-            <div class="class-card">
-              <div class="class-header">
-                <div class="class-grade">Grade 7A</div>
-                <div class="class-students">40 Students</div>
-              </div>
-              <div class="class-body">
-                <h3>Mathematics</h3>
-                <p>Fundamentals of Algebra and Geometry</p>
-                <div class="class-stats">
-                  <div class="stat">
-                    <span>Avg. Score</span>
-                    <strong>79%</strong>
-                  </div>
-                  <div class="stat">
-                    <span>Attendance</span>
-                    <strong>88%</strong>
-                  </div>
-                  <div class="stat">
-                    <span>Assignments</span>
-                    <strong>14/15</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="class-footer">
-                <button class="btn-view">View Class</button>
-                <button class="btn-message">Message</button>
-              </div>
-            </div>
-
-            <div class="class-card">
-              <div class="class-header">
-                <div class="class-grade">Grade 7B</div>
-                <div class="class-students">36 Students</div>
-              </div>
-              <div class="class-body">
-                <h3>Mathematics</h3>
-                <p>Interactive Math and Practical Applications</p>
-                <div class="class-stats">
-                  <div class="stat">
-                    <span>Avg. Score</span>
-                    <strong>85%</strong>
-                  </div>
-                  <div class="stat">
-                    <span>Attendance</span>
-                    <strong>92%</strong>
-                  </div>
-                  <div class="stat">
-                    <span>Assignments</span>
-                    <strong>13/15</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="class-footer">
-                <button class="btn-view">View Class</button>
-                <button class="btn-message">Message</button>
-              </div>
-            </div>
-          </div>
+          <div id="classes-container" class="classes-grid"></div>
         </div>
 
         <!-- Attendance Page -->
@@ -402,171 +820,7 @@
             <h1>Attendance Management</h1>
             <p>Mark and track student attendance</p>
           </div>
-
-          <div class="attendance-controls">
-            <div class="date-selector">
-              <input type="date" value="2024-01-08" />
-              <button class="btn-primary">
-                <i class="fas fa-search"></i> Load Class
-              </button>
-            </div>
-            <select class="class-select">
-              <option>Grade 8A - Mathematics</option>
-              <option>Grade 8B - Mathematics</option>
-              <option>Grade 7A - Mathematics</option>
-              <option>Grade 7B - Mathematics</option>
-            </select>
-          </div>
-
-          <div class="attendance-table-container">
-            <table class="attendance-table">
-              <thead>
-                <tr>
-                  <th>Student Name</th>
-                  <th>Admission No.</th>
-                  <th>Status</th>
-                  <th>Remarks</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div class="student-info">
-                      <img
-                        src="https://ui-avatars.com/api/?background=ffb703&color=fff&name=John+Doe"
-                        alt="Student"
-                      />
-                      <span>John Mwangi</span>
-                    </div>
-                  </td>
-                  <td>CHP-001</td>
-                  <td>
-                    <select class="status-select">
-                      <option value="present">✓ Present</option>
-                      <option value="absent">✗ Absent</option>
-                      <option value="late">⏰ Late</option>
-                      <option value="excused">📝 Excused</option>
-                    </select>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      placeholder="Add remarks..."
-                      class="remarks-input"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="student-info">
-                      <img
-                        src="https://ui-avatars.com/api/?background=ffb703&color=fff&name=Jane+Smith"
-                        alt="Student"
-                      />
-                      <span>Jane Wanjiku</span>
-                    </div>
-                  </td>
-                  <td>CHP-002</td>
-                  <td>
-                    <select class="status-select">
-                      <option value="present">✓ Present</option>
-                      <option value="absent">✗ Absent</option>
-                      <option value="late">⏰ Late</option>
-                      <option value="excused">📝 Excused</option>
-                    </select>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      placeholder="Add remarks..."
-                      class="remarks-input"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="student-info">
-                      <img
-                        src="https://ui-avatars.com/api/?background=ffb703&color=fff&name=Michael+Ochieng"
-                        alt="Student"
-                      />
-                      <span>Michael Ochieng</span>
-                    </div>
-                  </td>
-                  <td>CHP-003</td>
-                  <td>
-                    <select class="status-select">
-                      <option value="present">✓ Present</option>
-                      <option value="absent">✗ Absent</option>
-                      <option value="late">⏰ Late</option>
-                      <option value="excused">📝 Excused</option>
-                    </select>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      placeholder="Add remarks..."
-                      class="remarks-input"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="student-info">
-                      <img
-                        src="https://ui-avatars.com/api/?background=ffb703&color=fff&name=Mary+Akinyi"
-                        alt="Student"
-                      />
-                      <span>Mary Akinyi</span>
-                    </div>
-                  </td>
-                  <td>CHP-004</td>
-                  <td>
-                    <select class="status-select">
-                      <option value="present">✓ Present</option>
-                      <option value="absent">✗ Absent</option>
-                      <option value="late">⏰ Late</option>
-                      <option value="excused">📝 Excused</option>
-                    </select>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      placeholder="Add remarks..."
-                      class="remarks-input"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="attendance-summary">
-            <div class="summary-card">
-              <h4>Today's Summary</h4>
-              <div class="summary-stats">
-                <div class="summary-stat">
-                  <span>Present</span>
-                  <strong>42</strong>
-                </div>
-                <div class="summary-stat">
-                  <span>Absent</span>
-                  <strong>3</strong>
-                </div>
-                <div class="summary-stat">
-                  <span>Late</span>
-                  <strong>2</strong>
-                </div>
-                <div class="summary-stat">
-                  <span>Excused</span>
-                  <strong>1</strong>
-                </div>
-              </div>
-            </div>
-            <button class="btn-save-attendance">
-              <i class="fas fa-save"></i> Save Attendance
-            </button>
-          </div>
+          <div id="attendance-container"></div>
         </div>
 
         <!-- Grades Page -->
@@ -574,135 +828,233 @@
           <div class="page-header">
             <h1>Grades & Assessment</h1>
             <p>Record and manage student grades</p>
-          </div>
-
-          <div class="grades-controls">
-            <select class="class-select">
-              <option>Grade 8A - Mathematics</option>
-              <option>Grade 8B - Mathematics</option>
-              <option>Grade 7A - Mathematics</option>
-              <option>Grade 7B - Mathematics</option>
-            </select>
-            <select class="assessment-select">
-              <option>Term 1 - CAT 1</option>
-              <option>Term 1 - Mid-term Exam</option>
-              <option>Term 1 - CAT 2</option>
-              <option>Term 1 - End-term Exam</option>
-            </select>
-            <button class="btn-primary">
+            <button class="btn-primary" id="new-assessment-btn">
               <i class="fas fa-plus"></i> New Assessment
             </button>
           </div>
+          <div id="grades-container"></div>
+        </div>
 
-          <div class="grades-table-container">
-            <table class="grades-table">
-              <thead>
-                <tr>
-                  <th>Student Name</th>
-                  <th>Admission No.</th>
-                  <th>Score</th>
-                  <th>Grade</th>
-                  <th>Remarks</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>John Mwangi</td>
-                  <td>CHP-001</td>
-                  <td>
-                    <input
-                      type="number"
-                      class="score-input"
-                      value="85"
-                      min="0"
-                      max="100"
-                    />
-                  </td>
-                  <td><span class="grade-badge A">A</span></td>
-                  <td>
-                    <input
-                      type="text"
-                      placeholder="Remarks..."
-                      class="remarks-input"
-                      value="Excellent work!"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Jane Wanjiku</td>
-                  <td>CHP-002</td>
-                  <td>
-                    <input
-                      type="number"
-                      class="score-input"
-                      value="78"
-                      min="0"
-                      max="100"
-                    />
-                  </td>
-                  <td><span class="grade-badge B+">B+</span></td>
-                  <td>
-                    <input
-                      type="text"
-                      placeholder="Remarks..."
-                      class="remarks-input"
-                      value="Good improvement"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Michael Ochieng</td>
-                  <td>CHP-003</td>
-                  <td>
-                    <input
-                      type="number"
-                      class="score-input"
-                      value="92"
-                      min="0"
-                      max="100"
-                    />
-                  </td>
-                  <td><span class="grade-badge A">A</span></td>
-                  <td>
-                    <input
-                      type="text"
-                      placeholder="Remarks..."
-                      class="remarks-input"
-                      value="Outstanding!"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Mary Akinyi</td>
-                  <td>CHP-004</td>
-                  <td>
-                    <input
-                      type="number"
-                      class="score-input"
-                      value="67"
-                      min="0"
-                      max="100"
-                    />
-                  </td>
-                  <td><span class="grade-badge B-">B-</span></td>
-                  <td>
-                    <input
-                      type="text"
-                      placeholder="Remarks..."
-                      class="remarks-input"
-                      value="Needs more practice"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- Assignments Page -->
+        <div class="page" id="assignments-page">
+          <div class="page-header">
+            <h1>Assignments</h1>
+            <p>Create and manage assignments for students</p>
+            <button class="btn-primary" id="new-assignment-btn">
+              <i class="fas fa-plus"></i> Create Assignment
+            </button>
           </div>
+          <div id="assignments-container"></div>
+        </div>
 
-          <button class="btn-save-grades">
-            <i class="fas fa-save"></i> Save Grades
-          </button>
+        <!-- Learning Materials Page -->
+        <div class="page" id="materials-page">
+          <div class="page-header">
+            <h1>Learning Materials</h1>
+            <p>Upload and manage learning resources</p>
+            <button class="btn-primary" id="upload-material-btn">
+              <i class="fas fa-upload"></i> Upload Material
+            </button>
+          </div>
+          <div id="materials-container"></div>
+        </div>
+
+        <!-- Communication Page -->
+        <div class="page" id="communication-page">
+          <div class="page-header">
+            <h1>Communication</h1>
+            <p>Send announcements and messages to students</p>
+            <button class="btn-primary" id="send-announcement-btn">
+              <i class="fas fa-bullhorn"></i> Send Announcement
+            </button>
+          </div>
+          <div id="announcements-list"></div>
+        </div>
+
+        <!-- Timetable Page -->
+        <div class="page" id="timetable-page">
+          <div class="page-header">
+            <h1>Class Timetable</h1>
+            <p>Upload and manage class schedules</p>
+            <button class="btn-primary" id="upload-timetable-btn">
+              <i class="fas fa-upload"></i> Upload Timetable
+            </button>
+          </div>
+          <div id="timetable-container"></div>
+        </div>
+
+        <!-- Reports Page -->
+        <div class="page" id="reports-page">
+          <div class="page-header">
+            <h1>Student Reports</h1>
+            <p>Generate and download student performance reports</p>
+          </div>
+          <div id="reports-container"></div>
         </div>
       </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="assignment-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Create New Assignment</h3>
+          <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <select id="assignment-class" required>
+              <option value="">Select Class</option>
+              <option>Grade 8A</option>
+              <option>Grade 8B</option>
+              <option>Grade 7A</option>
+              <option>Grade 7B</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="assignment-title"
+              placeholder="Assignment Title"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+              id="assignment-description"
+              rows="4"
+              placeholder="Assignment Description"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <input type="date" id="assignment-due-date" required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-confirm" id="save-assignment">
+            Create Assignment
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="announcement-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Send Announcement</h3>
+          <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <select id="announcement-class">
+              <option value="all">All Classes</option>
+              <option>Grade 8A</option>
+              <option>Grade 8B</option>
+              <option>Grade 7A</option>
+              <option>Grade 7B</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="announcement-title"
+              placeholder="Announcement Title"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+              id="announcement-message"
+              rows="4"
+              placeholder="Announcement Message"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-confirm" id="send-announcement">
+            Send Announcement
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="add-class-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add New Class</h3>
+          <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input
+              type="text"
+              id="new-class-name"
+              placeholder="Class Name (e.g., Grade 8A)"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              id="new-class-students"
+              placeholder="Number of Students"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+              id="new-class-description"
+              rows="3"
+              placeholder="Class Description"
+            ></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-confirm" id="save-new-class">Add Class</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="new-assessment-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Create New Assessment</h3>
+          <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <select id="assessment-class-select" required>
+              <option value="">Select Class</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="assessment-name"
+              placeholder="Assessment Name (e.g., Term 1 CAT 1)"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              id="assessment-max-score"
+              placeholder="Maximum Score"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-confirm" id="create-assessment">
+            Create Assessment
+          </button>
+        </div>
+      </div>
     </div>
 
     <script src="teacher.js"></script>
